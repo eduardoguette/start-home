@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--
+      This is the page head - it contains info the browser uses to display the page
+      You won't see what's in the head in the page
+      Scroll down to the body element for the page content
+    -->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+
+    <!-- 
+      This is an HTML comment
+      You can write text in a comment and the content won't be visible in the page
+    -->
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+
+    <title>Start Home</title>
+
+    <!-- Meta tags for SEO and social sharing -->
+    <link rel="canonical" href="https://glitch-hello-website.glitch.me/" />
+    <meta name="description" content="A simple website, built with Glitch." />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:title" content="Start Home" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://glitch-hello-website.glitch.me/" />
+    <meta
+      property="og:description"
+      content="A simple website, built with Glitch."
+    />
+    <meta
+      property="og:image"
+      content="https://cdn.glitch.com/605e2a51-d45f-4d87-a285-9410ad350515%2Fhello-website-social.png?v=1616712748147"
+    />
+    <meta name="twitter:card" content="summary" />
+
+    <!-- Import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+
+    <!-- Import the webpage's javascript file -->
+  </head>
+  <body>
+    <header class="w-full flex justify-between">
+      <div class="">
+        <button
+          class="bg-transparent block transform motion-safe:hover:scale-110 text-white px-2 rounded-full m-3 hover:bg-gray-100 hover:bg-opacity-10 h-10"
+        >
+          <svg
+            class="pointer-events-none	align-middle"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M10 11H7.101l.001-.009a4.956 4.956 0 0 1 .752-1.787 5.054 5.054 0 0 1 2.2-1.811c.302-.128.617-.226.938-.291a5.078 5.078 0 0 1 2.018 0 4.978 4.978 0 0 1 2.525 1.361l1.416-1.412a7.036 7.036 0 0 0-2.224-1.501 6.921 6.921 0 0 0-1.315-.408 7.079 7.079 0 0 0-2.819 0 6.94 6.94 0 0 0-1.316.409 7.04 7.04 0 0 0-3.08 2.534 6.978 6.978 0 0 0-1.054 2.505c-.028.135-.043.273-.063.41H2l4 4 4-4zm4 2h2.899l-.001.008a4.976 4.976 0 0 1-2.103 3.138 4.943 4.943 0 0 1-1.787.752 5.073 5.073 0 0 1-2.017 0 4.956 4.956 0 0 1-1.787-.752 5.072 5.072 0 0 1-.74-.61L7.05 16.95a7.032 7.032 0 0 0 2.225 1.5c.424.18.867.317 1.315.408a7.07 7.07 0 0 0 2.818 0 7.031 7.031 0 0 0 4.395-2.945 6.974 6.974 0 0 0 1.053-2.503c.027-.135.043-.273.063-.41H22l-4-4-4 4z"
+            ></path>
+          </svg>
+          <span class="sr-only">
+            Reload
+          </span>
+        </button>
+      </div>
+    </header>
+    <main>
+      <section class="wallpaper"></section>
+      <div class="content">
+        <section class="clock h-38"></section>
+        <form id="form" class="w-full mx-auto flex justify-center">
+          <input
+            class=" mx-auto cursor-pointer placeholder-white w-11/12 ring py-2 px-5 ring-gray-50 ring-opacity-5 focus:ring-gray-400 md:w-6/12 lg:w-4/12 outline-none text-white rounded-full m-3 bg-gray-100 bg-opacity-30 focus:bg-white focus:text-black"
+            type="text"
+            placeholder="Busca en Google o escribir una URL"
+          />
+        </form>
+        <section class="quote h-40"></section>
+      </div>
+
+      <div
+        class="absolute bottom-2 px-4 py-2 text-white flex justify-between w-full"
+      >
+        <a
+          href=""
+          target="_blank"
+          rel="noopener noreferrer"
+          class="block hover:text-indigo-400"
+          id="author"
+        ></a>
+        <div class="flex items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 mr-2"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+              clip-rule="evenodd"
+            />
+          </svg>
+
+          <p id="location"></p>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+    <script src="/script.js"></script>
+  </body>
+</html>
