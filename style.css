@@ -21,7 +21,7 @@ to this section's matching END comment to see page-specific styles.
   --wrapper-height: 87vh;
   --image-max-width: 300px;
   --image-margin: 3rem;
-  --font-family: system-ui, sans-serif; 
+  --font-family: Inter, system-ui, sans-serif; 
 }
 
 /* Basic page style resets */
@@ -39,10 +39,11 @@ body{
   background: black;
   overflow: hidden;
 }
-/* Import fonts */
 
-
-
+h1{
+  font-size: clamp(7rem, 10vw, 11rem);
+  line-height: 1;
+}
 header{
   position: absolute; 
   top: 0;
@@ -52,23 +53,17 @@ header{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  gap: 2rem;
+  height: 100vh; 
 }
 .wallpaper {
   width: 100%;
   height: 100%;
-  animation: loaded 300ms ease-in-out both;
+  background-size: cover;
+  filter: blur(0px) brightness(70%) grayscale(0%);
+  position: absolute;
+  z-index: -1;
 }
 
-@keyframes loaded{
-  from{
-    opacity: 0;
-  }
-  to{
-    opacity: 1
-  }
-} 
 .quote,
 .clock {
   width: min(800px, 90%);
@@ -80,3 +75,18 @@ header{
   display: block;
   margin-block: 1rem;
 }
+/* notes */
+
+div[contenteditable] {
+  position: relative;  
+  cursor: pointer;
+}
+input[type="checkbox"] {
+  transform: scale(1.5); 
+}
+ 
+input:checked ~ div[contenteditable] {
+  color: #959595;
+  text-decoration: line-through;
+}
+ 
