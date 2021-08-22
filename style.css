@@ -36,14 +36,18 @@ to this section's matching END comment to see page-specific styles.
 }
 
 body{
-  background: black;
-  overflow: hidden;
+  background: black; 
+}
+.notes{
+  scroll-behavior: smooth;
+}
+[aria-expanded="true"]{
+  display: block;
+}
+[aria-expanded="false"]{
+  display: none;
 }
 
-h1{
-  font-size: clamp(7rem, 10vw, 11rem);
-  line-height: 1;
-}
 header{
   position: absolute; 
   top: 0;
@@ -81,6 +85,10 @@ div[contenteditable] {
   position: relative;  
   cursor: pointer;
 }
+[contenteditable][placeholder]:empty:before {
+  content: attr(placeholder);
+  color: #555;
+} 
 input[type="checkbox"] {
   transform: scale(1.5); 
 }

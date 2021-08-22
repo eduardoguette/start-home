@@ -3,6 +3,7 @@
   btnNewNote.addEventListener("click", addNote);
 
   function addNote() {
+    closeToolTip();
     const notes = document.querySelector("#notes");
 
     const wrapperNote = document.createElement("div");
@@ -19,6 +20,7 @@
 
     const divContentNote = document.createElement("div");
     divContentNote.contentEditable = true;
+    divContentNote.setAttribute("placeholder", "To-do");
     divContentNote.className =
       "outline-none focus:ring focus:ring-indigo-300 hover:bg-gray-100 w-64 break-all  max-w-full rounded px-2 py-1 block";
     divContentNote.onkeydown = (e) => {
@@ -43,9 +45,9 @@
           <circle cx="12" cy="5" r="1"></circle>
         </svg>
       </button>
-      <ul class="absolute bg-white hidden overflow-hidden rounded-md shadow-sm  -left-28 -top-7 border " tooltip-expanded="false">
+      <ul class="absolute bg-white hidden overflow-hidden rounded-md shadow-sm  -left-44 -top-7 border " aria-expanded="false">
         <li>
-          <button id="btn-copy" class=" py-2 w-28 px-3 text-left flex items-center space-x-2 text-sm hover:bg-indigo-400 hover:text-white">
+          <button id="btn-copy" class=" py-2 w-44 px-3 text-left flex items-center gap-2 text-sm hover:bg-indigo-400 hover:text-white">
             <svg class="pointer-events-none" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paperclip" width="16"
               height="16"  viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
               stroke-linecap="round" stroke-linejoin="round">
@@ -58,12 +60,12 @@
               Copiar
             </span>
             <span class="copied pointer-events-none hidden">
-              Copiado!
+            Copiado!
             </span>
-          </button>
+            </button>
         </li>
       <li>
-        <button id="btn-delete" class=" py-2 w-28 px-3 text-left flex items-center space-x-2  text-sm hover:bg-indigo-400 hover:text-white">
+        <button id="btn-delete" class=" py-2 w-full px-3 text-left flex items-center gap-2  text-sm hover:bg-indigo-400 hover:text-white">
           <svg class="pointer-events-none" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="16" height="16" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
             <line x1="4" y1="7" x2="20" y2="7"></line>
@@ -78,6 +80,7 @@
 
           </span>
 
+          <span class="text-xs text-gray-600 block ml-auto">Del</span>
         </button>
          
       </li>
@@ -95,25 +98,17 @@
     divContentNote.focus();
   }
 
-  function countNotes() {
-    let totalNotes = 0;
-    const notes = document.querySelectorAll("#note");
-    notes.forEach((note) => {
-      if (note.nextElementSibling.textContent.trim().length > 0) totalNotes++;
-      if (note.checked) totalNotes--;
-    });
-    const pCant = document.getElementById("cant-notes");
-    pCant.textContent = "Tienes " + totalNotes + " pendientes.";
-    document.querySelector('#total-notes').textContent = totalNotes
-  }
+  
 
   function eventsNote(note) {
     note.querySelector("#btn-tooltip").addEventListener("click", (e) => {
-      document
-        .querySelectorAll("#btn-tooltip")
-        .forEach((elem) => elem.nextElementSibling.classList.add("hidden"));
-     
-      e.target.nextElementSibling.classList.toggle("hidden");
+      const toggle = e.target.nextElementSibling.getAttribute("aria-expanded");
+      closeToolTip();
+      if (toggle === "false") {
+        e.target.nextElementSibling.setAttribute("aria-expanded", "true");
+      } else {
+        closeToolTip();
+      }
     });
 
     /* copiar nota */
@@ -130,23 +125,21 @@
       setTimeout(() => {
         e.target.querySelectorAll("span")[0].classList.remove("hidden");
         e.target.querySelectorAll("span")[1].classList.add("hidden");
+        closeToolTip();
       }, 1000);
     });
 
     /* eliminar nota */
 
     note.querySelector("#btn-delete").addEventListener("click", () => {
-      note.classList.remove("animate__flipInX");
-      note.classList.add("animate__flipOutX");
-      setTimeout(() => {
-        note.remove();
-      }, 600);
-      countNotes();
+      deleteNote(note)
     });
+
     note.querySelector("input").addEventListener("input", () => {
       countNotes();
     });
   }
+
   async function copyNote(nota) {
     try {
       await navigator.clipboard.writeText(nota);
@@ -154,12 +147,48 @@
       console.log(e);
     }
   }
+
   document.querySelector("header").addEventListener("click", (e) => {
     if (e.target.matches(".btn-notes-list")) {
       document.querySelector(".notes-list__list").classList.toggle("hidden");
-    }
-    if (e.target.id === "btn-tooltip") {
-      // e.target.nextElementSibling.classList.toggle("hidden");
+      closeToolTip();
     }
   });
+
+  function closeToolTip() {
+    document.querySelectorAll('[aria-expanded="true"]').forEach((elem) => {
+      elem.setAttribute("aria-expanded", "false");
+    });
+  }
+
+  function deleteNote(note) { 
+    note.classList.remove("animate__flipInX");
+    note.classList.add("animate__flipOutX");
+    setTimeout(() => {
+      closeToolTip();
+      note.remove()
+      countNotes();
+    }, 600);
+  }
+  window.onkeydown = ({code}) => {
+    
+    document.querySelectorAll('[aria-expanded="true"]').forEach((elem) => {
+      if (code === "Backspace") {
+        closeToolTip()
+        deleteNote(elem.parentNode.parentElement)
+      }
+    });
+    
+  };
+
+  function countNotes() {
+    let totalNotes = 0;
+    const notes = document.querySelectorAll("#note");
+    notes.forEach((note) => {
+      if (note.nextElementSibling.textContent.trim().length > 0) totalNotes++;
+      if (note.checked) totalNotes--;
+    });
+    const pCant = document.getElementById("cant-notes");
+    pCant.textContent = "Tienes " + totalNotes + " pendientes.";
+  }
 })();

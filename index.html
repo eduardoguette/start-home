@@ -49,7 +49,7 @@
 </head>
 
 <body>
-  <header class="w-full flex items-center h-28 header">
+  <header class="w-full flex items-center  header">
     <div>
       <button
         class="bg-transparent block transform motion-safe:hover:scale-110 text-white px-2 rounded-full m-3 hover:bg-gray-100 hover:bg-opacity-10 h-10"
@@ -63,6 +63,17 @@
         <span class="sr-only">
           Reload
         </span>
+      </button>
+    </div>
+    <div>
+      <button
+        class="bg-transparent block transform motion-safe:hover:scale-110 px-2 rounded-full m-3 hover:bg-gray-100 hover:bg-opacity-10 h-10"
+        aria-selected="false"
+        aria-label="Guardar como Favorito" title="Favorito" id="favorito">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon text-transparent icon-tabler icon-tabler-star pointer-events-none" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="white" fill="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"></path>
+       </svg> 
       </button>
     </div>
     <div>
@@ -80,8 +91,6 @@
       </a>
     </div>
     <div class="relative">
-      <span id="total-notes" class=" absolute right-3 top-1 bg-red-600 px-1 flex
-      justify-center rounded-full text-center z-10 text-xs"></span>
       <button id="notes-list"
         class="btn-notes-list bg-transparent block transform motion-safe:hover:scale-110 text-white px-2 rounded-full m-3 hover:bg-gray-100 hover:bg-opacity-10 h-10"
         aria-label="Botón de notas" title="Crear nota">
@@ -99,7 +108,7 @@
       <div class="notes-list__list hidden">
         <div class="h-3 w-3 z-10 bg-white absolute top-14 left-7 transform rotate-45"></div>
         <div
-          class="absolute -left-28 md:left-0 z-10 bg-white top-14 notes rounded-md px-2 pt-6 pb-3 mt-1 shadow-md w-72">
+          class="absolute max-h-96 overflow-y-scroll -left-28 md:left-0 z-10 bg-white top-14 notes rounded-md px-2 pt-4 pb-3 mt-1 shadow-md w-72" role="Lista de notas">
           <p id="cant-notes" class="font-medium py-3 px-2 text-sm">No tienes nada pendiente.</p>
           <div id="notes" class=" flex flex-col space-y-2 ">
 
@@ -115,7 +124,7 @@
   <main>
     <section class="wallpaper"></section>
     <div class="content">
-      <section class="say mb-8"></section>
+      <section class="say mb-5"></section>
       <section class="clock"></section>
       <form id="form" class="w-full mx-auto flex justify-center">
         <input id="query"
@@ -124,7 +133,7 @@
       </form>
       <section class="quote py-5"></section>
     </div>
-    <div class="absolute bottom-2 px-4 py-2 text-white flex justify-between w-full">
+    <div id="info-wallpaper" class="absolute bottom-2 px-4 py-2 text-white flex justify-between w-full">
       <a href="" target="_blank" rel="noopener noreferrer" class="block hover:text-indigo-400" id="author"></a>
       <div class="flex items-center">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
@@ -133,14 +142,15 @@
             clip-rule="evenodd" />
         </svg>
 
-        <p id="location"></p>
+        <p class="text-right" id="location"></p>
       </div>
     </div>
 
   </main>
   <footer></footer>
-  <script src="script.js"></script>
+  <script src="js/main.js"></script>
   <script src="js/notes.js"></script>
+  <script src="js/favotiro.js" defer></script>
 </body>
 
 </html>
