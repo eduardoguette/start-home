@@ -1,28 +1,5 @@
-/******************************************************************************
-START Glitch hello-app default styles
-
-The styles in this section do some minimal CSS resets, set default fonts and 
-colors, and handle the layout for our footer and "Remix on Glitch" button. If
-you're new to CSS they may seem a little complicated, but you can scroll down
-to this section's matching END comment to see page-specific styles.
-******************************************************************************/
-
-/* 
-  The style rules specify elements by type and by attributes such as class and ID
-  Each section indicates an element or elements, then lists the style properties to apply
-  See if you can cross-reference the rules in this file with the elements in index.html
-*/
-
-/* Our default values set as CSS variables */
 :root {
-  --color-bg: #69F7BE;
-  --color-text-main: #000000;
-  --color-primary: #FFFF00;
-  --wrapper-height: 87vh;
-  --image-max-width: 300px;
-  --image-margin: 3rem;
-  --font-family: Inter, system-ui, sans-serif; 
-  --wallpaper: ""
+  --font-family: Inter, system-ui, sans-serif;
 }
 
 /* Basic page style resets */
@@ -36,35 +13,34 @@ to this section's matching END comment to see page-specific styles.
   display: none !important;
 }
 
-
-body{
-  background-color: black; 
+body {
+  background-color: black;
 }
-.notes{
+.notes {
   scroll-behavior: smooth;
 }
-[aria-expanded="true"]{
+[aria-expanded="true"] {
   display: block;
 }
-[aria-expanded="false"]{
+[aria-expanded="false"] {
   display: none;
 }
- 
-.content{
+
+.content {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
 }
-main{
+main {
   min-height: 80vh;
 }
-.wallpaper{ 
-  filter: brightness(0.7);
-  inset: 0; 
+.wallpaper {
+  inset: 0;
   z-index: -1;
   position: fixed;
-
+  filter: brightness(0.6);
+  -webkit-filter: brightness(0.6);
 }
 .quote,
 .clock {
@@ -73,26 +49,25 @@ main{
   color: white;
   text-align: center;
 }
-.quote small{
+.quote small {
   display: block;
   margin-block: 1rem;
 }
 /* notes */
 
 div[contenteditable] {
-  position: relative;  
+  position: relative;
   cursor: pointer;
 }
 [contenteditable][placeholder]:empty:before {
   content: attr(placeholder);
   color: #555;
-} 
-input[type="checkbox"] {
-  transform: scale(1.5); 
 }
- 
+input[type="checkbox"] {
+  transform: scale(1.5);
+}
+
 input:checked ~ div[contenteditable] {
   color: #959595;
   text-decoration: line-through;
 }
- 
