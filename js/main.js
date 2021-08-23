@@ -39,7 +39,6 @@ async function getSugs(query) {
   try {
     const resp = await fetch(url);
     const data = await resp.json();
-    console.log(data);
   } catch (e) {
     console.log(e);
   }
@@ -121,7 +120,6 @@ function sayHello() {
     dayPeriod: "long",
   };
   let result = new Intl.DateTimeFormat("en-US", options).format(date);
-  console.log(result);
   if (result.includes("morning")) {
     rootSay.innerHTML = `<h2 class="text-white font-sistema text-xl md:text-4xl">Buenos días</h2>;
  `;
