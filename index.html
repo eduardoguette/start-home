@@ -37,7 +37,7 @@
   <meta name="twitter:card" content="summary" />
 
   <!-- Import the webpage's stylesheet -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
@@ -48,8 +48,8 @@
   <!-- Import the webpage's javascript file -->
 </head>
 
-<body>
-  <header class="w-full flex items-center  header">
+<body >
+  <header class="w-full flex items-center header h-24">
     <div>
       <button
         class="bg-transparent block transform motion-safe:hover:scale-110 text-white px-2 rounded-full m-3 hover:bg-gray-100 hover:bg-opacity-10 h-10"
@@ -121,9 +121,8 @@
       </div>
     </div>
   </header>
-  <main>
-    <section class="wallpaper"></section>
-    <div class="content">
+  <main class="flex flex-col justify-center">
+    
       <section class="say mb-5"></section>
       <section class="clock"></section>
       <form id="form" class="w-full mx-auto flex justify-center">
@@ -133,21 +132,21 @@
       </form>
       <section class="quote py-5"></section>
     </div>
-    <div id="info-wallpaper" class="absolute bottom-2 px-4 py-2 text-white flex justify-between w-full">
-      <a href="" target="_blank" rel="noopener noreferrer" class="block hover:text-indigo-400" id="author"></a>
+
+  </main>
+  <div class="wallpaper"></div>
+  <footer id="info-wallpaper" class="px-4 py-2 text-white flex justify-between w-full md:absolute bottom-0">
+    <a href="" target="_blank" rel="noopener noreferrer" class="block hover:text-indigo-400" id="author"></a>
       <div class="flex items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+        
+        <p class="text-right" id="location"></p>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
           <path fill-rule="evenodd"
             d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
             clip-rule="evenodd" />
         </svg>
-
-        <p class="text-right" id="location"></p>
       </div>
-    </div>
-
-  </main>
-  <footer></footer>
+  </footer>
   <script src="js/main.js"></script>
   <script src="js/notes.js"></script>
   <script src="js/favotiro.js" defer></script>

@@ -3,12 +3,12 @@ const input = document.querySelector("#query");
 let name;
 (function () {
   if (localStorage.getItem("fav")) {
-    document.querySelector("#favorito").setAttribute('aria-selected', true)
+    document.querySelector("#favorito").setAttribute("aria-selected", true);
     document.querySelector("#favorito svg").classList.add("text-white");
     const api = JSON.parse(localStorage.getItem("fav"));
     document.querySelector(".wallpaper").style = `${api.wallpaper}`;
     document.querySelector(".quote").innerHTML = `${api.quote} `;
-    document.querySelector('#info-wallpaper').innerHTML = `${api.info}`
+    document.querySelector("#info-wallpaper").innerHTML = `${api.info}`;
   } else {
     getWallpaper();
     getQuote();
@@ -16,8 +16,10 @@ let name;
 })();
 
 button.addEventListener("click", () => {
-  if (document.querySelector("#favorito").getAttribute('aria-selected') === "false") {
-    
+  if (
+    document.querySelector("#favorito").getAttribute("aria-selected") ===
+    "false"
+  ) {
     getWallpaper();
     getQuote();
   }
@@ -45,10 +47,12 @@ async function getSugs(query) {
 }
 
 function addWallpaper(image) {
-  const wallpaper = document.querySelector(".wallpaper");
+  const wallpaper = document.querySelector('.wallpaper');
+  
   wallpaper.className = "wallpaper animate__animated animate__fadeIn";
   wallpaper.style = `
   background: url('${image.file}') center center no-repeat;
+  background-size: cover;
   `;
   setTimeout(() => {
     wallpaper.className = "wallpaper";
@@ -97,17 +101,23 @@ setInterval(() => {
 function addQuote(data) {
   const rootQuote = document.querySelector(".quote");
   rootQuote.innerHTML = `
-    <h2 class="text-lg font-medium animate__animated animate__flipInX">${data.quote}</h2>
-    <small class="text-md animate__animated animate__flipInX">${data.author}</small>
+    <h2 class="text-lg font-medium animate__animated animate__flipInX">${
+      data.text
+    }</h2>
+    <small class="text-md animate__animated animate__flipInX">${
+      data.author || "Unknown"
+    }</small>
   `;
 }
 
 async function getQuote() {
-  const url = "https://api.muetab.com/quotes/random";
+  const url = "./data/quotes.json";
   try {
     const resp = await fetch(url);
     const data = await resp.json();
-    addQuote(data);
+    const quote = Math.floor(Math.random() * data.length);
+    console.log(data[quote]);
+    addQuote(data[quote]);
   } catch (e) {
     console.log(e);
   }
@@ -121,11 +131,11 @@ function sayHello() {
   };
   let result = new Intl.DateTimeFormat("en-US", options).format(date);
   if (result.includes("morning")) {
-    rootSay.innerHTML = `<h2 class="text-white font-sistema text-xl md:text-4xl">Buenos días</h2>;
+    rootSay.innerHTML = `<h2 class="text-white text-center font-sistema text-xl md:text-4xl">Buenos días</h2>;
  `;
   } else if (result.includes("afternoon") || result.includes("evening")) {
-    rootSay.innerHTML = `<h2 class="text-white font-sistema text-xl md:text-4xl">Buenas tardes</h2>`;
+    rootSay.innerHTML = `<h2 class="text-white text-center font-sistema text-xl md:text-4xl">Buenas tardes</h2>`;
   } else if (result.includes("night")) {
-    rootSay.innerHTML = `<h2 class="text-white font-sistema text-xl md:text-4xl">Buenas noches</h2>`;
+    rootSay.innerHTML = `<h2 class="text-white text-center font-sistema text-xl md:text-4xl">Buenas noches</h2>`;
   }
 }
