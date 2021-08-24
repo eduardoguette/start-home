@@ -207,8 +207,8 @@
   function countNotes() {
     const toDos = JSON.parse(localStorage.getItem('notes'))
     let totalNotes = 0; 
-    toDos.forEach((note) => {
-      !note.finish && totalNotes++
+    toDos?.forEach((note) => {
+      !note?.finish && totalNotes++
     });
      
     const pCant = document.getElementById("cant-notes");
@@ -228,7 +228,7 @@
 
   function paintNotes() {
     const notes = document.querySelector("#notes");
-
+    console.log(toDos)
     toDos.forEach((elem) => {
       const divWrapper = document.createElement("div");
       divWrapper.className =
