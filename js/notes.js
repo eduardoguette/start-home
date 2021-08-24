@@ -3,7 +3,7 @@
   localStorage.getItem("notes")
     ? (toDos = JSON.parse(localStorage.getItem("notes")))
     : (toDos = []);
-  toDos = toDos.filter(todo => todo.content)
+  toDos = toDos.filter(todo => todo.content) 
   const btnNewNote = document.querySelector("#new-note");
   btnNewNote.addEventListener("click", addNote);
   function addNote() {
