@@ -1,15 +1,25 @@
 (function () {
+  let toDos;
+  localStorage.getItem("notes")
+    ? (toDos = JSON.parse(localStorage.getItem("notes")))
+    : (toDos = []);
+
   const btnNewNote = document.querySelector("#new-note");
   btnNewNote.addEventListener("click", addNote);
-
   function addNote() {
+    const note = {};
+
+    const idNote = Date.now();
+
+    note.id = idNote;
+
     closeToolTip();
     const notes = document.querySelector("#notes");
 
     const wrapperNote = document.createElement("div");
     wrapperNote.className =
       "note px-3 flex items-center space-x-3 animate__animated  animate__flipInX";
-
+    wrapperNote.dataset.id = idNote;
     const inputNote = document.createElement("input");
     inputNote.type = "checkbox";
     inputNote.id = "note";
@@ -28,9 +38,12 @@
         e.preventDefault();
         e.target.textContent.trim().length > 0 && addNote();
       }
-
       countNotes();
     };
+
+    divContentNote.addEventListener("input", (e) => {
+      catchNote(wrapperNote);
+    });
 
     const divToolTip = document.createElement("div");
     divToolTip.className = "relative";
@@ -96,9 +109,9 @@
     countNotes();
     eventsNote(wrapperNote);
     divContentNote.focus();
-  }
 
-  
+    toDos = [...toDos, note];
+  }
 
   function eventsNote(note) {
     note.querySelector("#btn-tooltip").addEventListener("click", (e) => {
@@ -132,11 +145,15 @@
     /* eliminar nota */
 
     note.querySelector("#btn-delete").addEventListener("click", () => {
-      deleteNote(note)
+      deleteNote(note);
     });
 
     note.querySelector("input").addEventListener("input", () => {
-      countNotes();
+      catchNote(note);
+    });
+
+    note.querySelector("div[contenteditable]").addEventListener("input", () => {
+      catchNote(note);
     });
   }
 
@@ -161,34 +178,75 @@
     });
   }
 
-  function deleteNote(note) { 
+  function deleteNote(note) {
+    const idDelete = Number(note.dataset.id);
+
+    const notes = JSON.parse(localStorage.getItem("notes")).filter(
+      (note) => note.id !== idDelete
+    );
+
+    localStorage.setItem("notes", JSON.stringify(notes));
+
     note.classList.remove("animate__flipInX");
     note.classList.add("animate__flipOutX");
     setTimeout(() => {
       closeToolTip();
-      note.remove()
-      countNotes();
+      note.remove();
     }, 600);
+    countNotes();
   }
-  window.onkeydown = ({code}) => {
-    
+  window.onkeydown = ({ code }) => {
     document.querySelectorAll('[aria-expanded="true"]').forEach((elem) => {
       if (code === "Backspace") {
-        closeToolTip()
-        deleteNote(elem.parentNode.parentElement)
+        closeToolTip();
+        deleteNote(elem.parentNode.parentElement);
       }
     });
-    
   };
 
   function countNotes() {
-    let totalNotes = 0;
-    const notes = document.querySelectorAll("#note");
-    notes.forEach((note) => {
-      if (note.nextElementSibling.textContent.trim().length > 0) totalNotes++;
-      if (note.checked) totalNotes--;
+    const toDos = JSON.parse(localStorage.getItem('notes'))
+    let totalNotes = 0; 
+    toDos.forEach((note) => {
+      !note.finish && totalNotes++
     });
+     
     const pCant = document.getElementById("cant-notes");
     pCant.textContent = "Tienes " + totalNotes + " pendientes.";
   }
+
+  function catchNote(note) {
+    toDos.forEach((elem) => {
+      if (elem.id === parseInt(note.dataset.id)) {
+        elem.content = note.innerHTML;
+        elem.finish = note.querySelector("input").checked;
+      }
+    });
+    localStorage.setItem("notes", JSON.stringify(toDos));
+    countNotes()
+  }
+
+  function paintNotes() {
+    const notes = document.querySelector("#notes");
+
+    toDos.forEach((elem) => {
+      const divWrapper = document.createElement("div");
+      divWrapper.className =
+        "note px-3 flex items-center space-x-3 animate__animated  animate__flipInX";
+      divWrapper.dataset.id = elem.id;
+
+      divWrapper.innerHTML = elem.content;
+
+      notes.appendChild(divWrapper);
+      
+      eventsNote(divWrapper);
+      if (elem.finish === true) {
+        divWrapper.querySelector("input").setAttribute("checked", true);
+      } else {
+        divWrapper.querySelector("input").removeAttribute("checked");
+      }
+    });
+    countNotes();
+  }
+  paintNotes();
 })();

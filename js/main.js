@@ -116,7 +116,7 @@ async function getQuote() {
     const resp = await fetch(url);
     const data = await resp.json();
     const quote = Math.floor(Math.random() * data.length);
-    console.log(data[quote]);
+
     addQuote(data[quote]);
   } catch (e) {
     console.log(e);
