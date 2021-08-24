@@ -32,7 +32,7 @@
     divContentNote.contentEditable = true;
     divContentNote.setAttribute("placeholder", "To-do");
     divContentNote.className =
-      "outline-none focus:ring focus:ring-indigo-300 hover:bg-gray-100 w-64 break-all  max-w-full rounded px-2 py-1 block";
+      "outline-none focus:ring focus:ring-indigo-300 hover:bg-gray-100 w-64  max-w-full rounded px-2 py-1 block";
     divContentNote.onkeydown = (e) => {
       if (e.code === "Enter") {
         e.preventDefault();
