@@ -3,7 +3,7 @@
   localStorage.getItem("notes")
     ? (toDos = JSON.parse(localStorage.getItem("notes")))
     : (toDos = []);
-
+  toDos = toDos.filter(todo => todo.content)
   const btnNewNote = document.querySelector("#new-note");
   btnNewNote.addEventListener("click", addNote);
   function addNote() {
@@ -205,46 +205,51 @@
   };
 
   function countNotes() {
-    const toDos = JSON.parse(localStorage.getItem('notes'))
-    let totalNotes = 0; 
+    const toDos = JSON.parse(localStorage.getItem("notes"));
+    let totalNotes = 0;
     toDos?.forEach((note) => {
-      !note?.finish && totalNotes++
+      !note?.finish && totalNotes++;
     });
-     
+
     const pCant = document.getElementById("cant-notes");
     pCant.textContent = "Tienes " + totalNotes + " pendientes.";
   }
 
   function catchNote(note) {
-    toDos.forEach((elem) => {
-      if (elem.id === parseInt(note.dataset.id)) {
-        elem.content = note.innerHTML;
-        elem.finish = note.querySelector("input").checked;
-      }
-    });
-    localStorage.setItem("notes", JSON.stringify(toDos));
-    countNotes()
+    if (note.innerText.trim().length >= 1) {
+      toDos.forEach((elem) => {
+        if (elem.id === parseInt(note.dataset.id)) {
+          elem.content = note.innerHTML;
+          elem.finish = note.querySelector("input").checked;
+        }
+      });
+      localStorage.setItem("notes", JSON.stringify(toDos));
+      countNotes();
+    }
   }
 
   function paintNotes() {
     const notes = document.querySelector("#notes");
-    console.log(toDos)
+    
     toDos.forEach((elem) => {
-      const divWrapper = document.createElement("div");
-      divWrapper.className =
-        "note px-3 flex items-center space-x-3 animate__animated  animate__flipInX";
-      divWrapper.dataset.id = elem.id;
+      console.log(toDos)
+      if (elem.content) {
+        const divWrapper = document.createElement("div");
+        divWrapper.className =
+          "note px-3 flex items-center space-x-3 animate__animated  animate__flipInX";
+        divWrapper.dataset.id = elem.id;
 
-      divWrapper.innerHTML = elem.content;
+        divWrapper.innerHTML = elem.content;
 
-      notes.appendChild(divWrapper);
-      
-      eventsNote(divWrapper);
-      if (elem.finish === true) {
-        divWrapper.querySelector("input").setAttribute("checked", true);
-      } else {
-        divWrapper.querySelector("input").removeAttribute("checked");
-      }
+        notes.appendChild(divWrapper);
+
+        eventsNote(divWrapper);
+        if (elem.finish === true) {
+          divWrapper.querySelector("input").setAttribute("checked", true);
+        } else {
+          divWrapper.querySelector("input").removeAttribute("checked");
+        }
+      } 
     });
     countNotes();
   }
