@@ -3,7 +3,8 @@
   localStorage.getItem("notes")
     ? (toDos = JSON.parse(localStorage.getItem("notes")))
     : (toDos = []);
-  toDos = toDos.filter(todo => todo.content) 
+  toDos = toDos.filter(todo => todo.content)
+  localStorage.setItem("notes", JSON.stringify(toDos))
   const btnNewNote = document.querySelector("#new-note");
   btnNewNote.addEventListener("click", addNote);
   function addNote() {
@@ -208,7 +209,7 @@
     const toDos = JSON.parse(localStorage.getItem("notes"));
     let totalNotes = 0;
     toDos?.forEach((note) => {
-      !note?.finish && totalNotes++;
+      if(!note?.finish && note.content)  totalNotes++;
     });
 
     const pCant = document.getElementById("cant-notes");
@@ -232,7 +233,6 @@
     const notes = document.querySelector("#notes");
     
     toDos.forEach((elem) => {
-      console.log(toDos)
       if (elem.content) {
         const divWrapper = document.createElement("div");
         divWrapper.className =
