@@ -75,12 +75,12 @@ input:checked ~ div[contenteditable] {
   text-decoration: line-through;
 }
 
-.notes::-webkit-scrollbar {
+::-webkit-scrollbar {
   height: 3px;
   width: 5px;
 }
 
-.notes::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   background: #ccc;
   width: 2px;
   border-radius: 1rem;
@@ -90,17 +90,17 @@ input:checked ~ div[contenteditable] {
   -o-border-radius: 1rem;
 }
 
-.notes::-webkit-scrollbar-thumb:active {
+::-webkit-scrollbar-thumb:active {
   background-color: #999999;
 }
 
-.notes::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover {
   background: #747474;
   box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 /* Estilos track de scroll */
-.notes::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
   background: #e1e1e1;
   border-radius: 1rem;
   -webkit-border-radius: 1rem;
@@ -109,8 +109,8 @@ input:checked ~ div[contenteditable] {
   -o-border-radius: 1rem;
 }
 
-.notes::-webkit-scrollbar-track:hover,
-.notes::-webkit-scrollbar-track:active {
+::-webkit-scrollbar-track:hover,
+::-webkit-scrollbar-track:active {
   background: #d4d4d4;
 }
 

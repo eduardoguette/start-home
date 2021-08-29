@@ -141,18 +141,18 @@
         </svg>
       </button>
       <div role="dialog" aria-modal="true" hidden
-        class="fixed bg-black bg-opacity-30 backdrop-filter inset-0 z-20 text-black backdrop-blur-lg dialog-fixed" data-dialog-hide
-        style="backdrop-filter: blur(4px);">
+        class="fixed bg-black bg-opacity-30 backdrop-filter inset-0 z-20 text-black backdrop-blur-lg dialog-fixed"
+        data-dialog-hide>
         <div
-          class="settings bg-white absolute inset-0 h-96 w-11/12 md:w-7/12 lg:w-6/12  m-auto rounded-md overflow-hidden">
+          class="settings bg-white absolute inset-0 h-64 lg:h-96 overflow-y-scroll w-11/12 md:w-7/12 lg:w-6/12  m-auto rounded-md ">
           <button class="absolute right-3 top-3 rounded-full p-2 hover:bg-gray-200" type="button" data-dialog-hide>
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4  pointer-events-none" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
-          <div class="settings__menu flex h-96 w-full">
-            <div class="bg-gray-100 h-full w-16 md:w-7/12 py-6">
+          <div class="settings__menu flex h-full">
+            <div class="bg-gray-100 h-96 w-16 md:w-7/12 py-6">
               <h4 class="md:text-2xl font-bold px-4 mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" class="md:hidden icon icon-tabler icon-tabler-settings"
                   width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
@@ -166,21 +166,21 @@
                 <span class="hidden md:block"> Configuración</span>
               </h4>
               <button role="button" aria-label="Botón saludo"
-                class="hover:bg-gray-200 flex items-center space-x-2 hover:text-black w-full text-left px-4 py-3 " aria-selected="true"
-                data-option="1">
-                <svg xmlns="http://www.w3.org/2000/svg" class=" icon icon-tabler icon-tabler-user pointer-events-none" width="24"
-                  height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                class="hover:bg-gray-200 flex items-center space-x-2 hover:text-black w-full text-left px-4 py-3 "
+                aria-selected="true" data-option="1">
+                <svg xmlns="http://www.w3.org/2000/svg" class=" icon icon-tabler icon-tabler-user pointer-events-none"
+                  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                   stroke-linecap="round" stroke-linejoin="round">
                   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                   <circle cx="12" cy="7" r="4"></circle>
                   <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
                 </svg>
-                <span class="hidden md:block pointer-events-none">Perfil</span>
+                <span class="hidden md:block pointer-events-none">Usuario</span>
               </button>
-              <button class="hover:bg-gray-200 flex items-center space-x-2 hover:text-black w-full text-left px-4 py-3 " role="button"
-                aria-label="Botón Información" data-option="2" aria-selected="false">
-                <svg xmlns="http://www.w3.org/2000/svg" class="pointer-events-none  h-6 w-6" fill="none" viewBox="0 0 24 24"
-                  stroke="currentColor">
+              <button class="hover:bg-gray-200 flex items-center space-x-2 hover:text-black w-full text-left px-4 py-3 "
+                role="button" aria-label="Botón Información" data-option="2" aria-selected="false">
+                <svg xmlns="http://www.w3.org/2000/svg" class="pointer-events-none  h-6 w-6" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
@@ -189,7 +189,7 @@
             </div>
             <div class="w-full py-16 px-4">
               <div data-selected="1">
-                <h4 class="font-bold text-lg -mt-6 px-1 pb-2">Perfil</h4>
+                <h4 class="font-bold text-lg -mt-6 px-1 pb-2">Usuario</h4>
                 <div id="name-user"
                   class="focus:bg-gray-100 outline-none py-2 px-3 rounded-md border border-gray-100 w-full text-sm"
                   contenteditable aria-label="Nombre de usuario" placeholder="Escribe tu nombre"></div>
@@ -197,7 +197,7 @@
               <div data-selected="2" hidden class="h-full">
                 <h4 class="font-bold text-lg -mt-6 px-1 pb-2">Información</h4>
                 <div>
-                  <h2 class="flex md:items-center flex-col md:flex-row space-x-2 ">
+                  <h2 class="flex md:items-center flex-col md:flex-row gap-2 ">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-smart-home" width="54"
                       height="54" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                       stroke-linecap="round" stroke-linejoin="round">
@@ -209,18 +209,27 @@
                     </svg>
                     <div class="flex flex-col">
                       <span class="block text-2xl font-medium">Start Home</span>
-                      <span class="version">v2.3</span>
+                      <span class="version text-xs">v2.3.2</span>
                     </div>
 
                   </h2>
-                  <div class="px-2 my-2 border-b border-gray-200 pb-2 flex">
+                  <div class="flex flex-col my-2 border-b border-gray-200 pb-2 ">
 
-                    <a href="https://github.com/eduardoguette/start-home" target="_blank" rel="noopener noreferrer"
-                      class=" ">
+                    <a href="https://github.com/eduardoguette/start-home" target="_blank" rel="noopener noreferrer">
                       <span class="text-xs hover:text-purple-500">View Code</span>
                     </a>
+
+                    <div class="credits text-xs mt-2">
+                      <p>
+
+                        Inspirado en
+                        <a href="https://demo.muetab.com/" target="_blank" rel="noopener noreferrer"
+                          class="hover:text-purple-500"> Mue</a>
+                      </p>
+                    </div> 
                   </div>
-                  <div class="mt-1 px-2 lg:mt-10 text-xs flex flex-col">
+
+                  <div class="mt-1  lg:mt-10 text-xs flex flex-col">
                     <p>Desarrollado por Eduardo Guette</p>
                     <div class="flex items-center space-x-1 mt-2">
                       <a href="https://www.linkedin.com/in/eduardo-guette/" target="_blank" rel="noopener noreferrer"
