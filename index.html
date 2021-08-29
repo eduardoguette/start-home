@@ -141,34 +141,58 @@
         </svg>
       </button>
       <div role="dialog" aria-modal="true" hidden
-        class="fixed bg-black bg-opacity-30 backdrop-filter inset-0 z-20 text-black backdrop-blur-lg" data-dialog-hide style="backdrop-filter: blur(4px);">
+        class="fixed bg-black bg-opacity-30 backdrop-filter inset-0 z-20 text-black backdrop-blur-lg dialog-fixed" data-dialog-hide
+        style="backdrop-filter: blur(4px);">
         <div
-          class="settings bg-white absolute inset-0 h-96 md:h-72 w-11/12 md:w-4/6 lg:w-2/6  m-auto rounded-md overflow-hidden">
+          class="settings bg-white absolute inset-0 h-96 w-11/12 md:w-7/12 lg:w-6/12  m-auto rounded-md overflow-hidden">
           <button class="absolute right-3 top-3 rounded-full p-2 hover:bg-gray-200" type="button" data-dialog-hide>
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4  pointer-events-none" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
-          <div class="settings__menu flex h-96 md:h-72 w-full">
-            <div class="bg-gray-100 h-full w-7/12 py-6">
-              <h4 class="md:text-2xl font-bold px-4 mb-4">Configuración</h4>
+          <div class="settings__menu flex h-96 w-full">
+            <div class="bg-gray-100 h-full w-16 md:w-7/12 py-6">
+              <h4 class="md:text-2xl font-bold px-4 mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="md:hidden icon icon-tabler icon-tabler-settings"
+                  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <path
+                    d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z">
+                  </path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                <span class="hidden md:block"> Configuración</span>
+              </h4>
               <button role="button" aria-label="Botón saludo"
-                class="hover:bg-gray-200 hover:text-black w-full text-left px-4 py-3 " aria-selected="true"
+                class="hover:bg-gray-200 flex items-center space-x-2 hover:text-black w-full text-left px-4 py-3 " aria-selected="true"
                 data-option="1">
-                Saludo
+                <svg xmlns="http://www.w3.org/2000/svg" class=" icon icon-tabler icon-tabler-user pointer-events-none" width="24"
+                  height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+                </svg>
+                <span class="hidden md:block pointer-events-none">Perfil</span>
               </button>
-              <button class="hover:bg-gray-200 hover:text-black w-full text-left px-4 py-3 " role="button"
+              <button class="hover:bg-gray-200 flex items-center space-x-2 hover:text-black w-full text-left px-4 py-3 " role="button"
                 aria-label="Botón Información" data-option="2" aria-selected="false">
-                Información
+                <svg xmlns="http://www.w3.org/2000/svg" class="pointer-events-none  h-6 w-6" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span class="hidden md:block pointer-events-none">Información</span>
               </button>
             </div>
             <div class="w-full py-16 px-4">
               <div data-selected="1">
-                <h4 class="font-bold text-lg -mt-6 px-1 pb-2">Saludo</h4>
+                <h4 class="font-bold text-lg -mt-6 px-1 pb-2">Perfil</h4>
                 <div id="name-user"
                   class="focus:bg-gray-100 outline-none py-2 px-3 rounded-md border border-gray-100 w-full text-sm"
-                  contenteditable aria-label="Saludo" placeholder="Nombre para el saludo"></div>
+                  contenteditable aria-label="Nombre de usuario" placeholder="Escribe tu nombre"></div>
               </div>
               <div data-selected="2" hidden class="h-full">
                 <h4 class="font-bold text-lg -mt-6 px-1 pb-2">Información</h4>
@@ -190,16 +214,17 @@
 
                   </h2>
                   <div class="px-2 my-2 border-b border-gray-200 pb-2 flex">
-                    
+
                     <a href="https://github.com/eduardoguette/start-home" target="_blank" rel="noopener noreferrer"
                       class=" ">
                       <span class="text-xs hover:text-purple-500">View Code</span>
-                       </a>
+                    </a>
                   </div>
                   <div class="mt-1 px-2 lg:mt-10 text-xs flex flex-col">
                     <p>Desarrollado por Eduardo Guette</p>
                     <div class="flex items-center space-x-1 mt-2">
-                      <a href="https://www.linkedin.com/in/eduardo-guette/" target="_blank" rel="noopener noreferrer" class="hover:text-white hover:bg-purple-500 rounded-full  h-8 w-8 flex items-center justify-center"> 
+                      <a href="https://www.linkedin.com/in/eduardo-guette/" target="_blank" rel="noopener noreferrer"
+                        class="hover:text-white hover:bg-purple-500 rounded-full  h-8 w-8 flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin"
                           width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                           stroke-linecap="round" stroke-linejoin="round">
@@ -211,7 +236,8 @@
                           <path d="M16 16v-3a2 2 0 0 0 -4 0"></path>
                         </svg>
                       </a>
-                      <a href="https://twitter.com/eduardoguette" target="_blank" rel="noopener noreferrer" class="hover:text-white hover:bg-purple-500 rounded-full  h-8 w-8 flex items-center justify-center">
+                      <a href="https://twitter.com/eduardoguette" target="_blank" rel="noopener noreferrer"
+                        class="hover:text-white hover:bg-purple-500 rounded-full  h-8 w-8 flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter"
                           width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                           stroke-linecap="round" stroke-linejoin="round">

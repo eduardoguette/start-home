@@ -15,10 +15,9 @@
 
 body {
   background-color: black;
-  
+
   display: grid;
   grid-template-rows: auto 1fr auto;
-
 }
 .notes {
   scroll-behavior: smooth;
@@ -78,9 +77,9 @@ input:checked ~ div[contenteditable] {
 
 .notes::-webkit-scrollbar {
   height: 3px;
-  width: 5px; 
+  width: 5px;
 }
- 
+
 .notes::-webkit-scrollbar-thumb {
   background: #ccc;
   width: 2px;
@@ -107,10 +106,15 @@ input:checked ~ div[contenteditable] {
   -webkit-border-radius: 1rem;
   -moz-border-radius: 1rem;
   -ms-border-radius: 1rem;
-  -o-border-radius: 1rem; 
+  -o-border-radius: 1rem;
 }
 
 .notes::-webkit-scrollbar-track:hover,
 .notes::-webkit-scrollbar-track:active {
   background: #d4d4d4;
+}
+
+.dialog-fixed {
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
 }
