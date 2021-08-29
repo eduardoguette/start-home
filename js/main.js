@@ -1,6 +1,7 @@
 const button = document.querySelector("button");
 const input = document.querySelector("#query");
-let name;
+let user;
+
 (function () {
   if (localStorage.getItem("fav")) {
     document.querySelector("#favorito").setAttribute("aria-selected", true);
@@ -47,8 +48,8 @@ async function getSugs(query) {
 }
 
 function addWallpaper(image) {
-  const wallpaper = document.querySelector('.wallpaper');
-  
+  const wallpaper = document.querySelector(".wallpaper");
+
   wallpaper.className = "wallpaper animate__animated animate__fadeIn";
   wallpaper.style = `
   background: url('${image.file}') center center no-repeat;
@@ -124,6 +125,10 @@ async function getQuote() {
 }
 
 function sayHello() {
+  const nameUser = document.querySelector("#name-user");
+  user = localStorage.getItem("name-user");
+  nameUser.textContent = user;
+  nameUser.addEventListener("input", setNameUser);
   const rootSay = document.querySelector(".say");
   const date = new Date();
   const options = {
@@ -131,11 +136,25 @@ function sayHello() {
   };
   let result = new Intl.DateTimeFormat("en-US", options).format(date);
   if (result.includes("morning")) {
-    rootSay.innerHTML = `<h2 class="text-white text-center font-sistema text-xl md:text-4xl">Buenos días</h2>;
+    rootSay.innerHTML = `<h2 class="text-white text-center font-sistema text-xl md:text-4xl">Buenos días${
+      user.trim().length >= 1 ? ", " + user : ""
+    }</h2>;
  `;
-  } else if (result.includes("afternoon") || result.includes("evening")) {
-    rootSay.innerHTML = `<h2 class="text-white text-center font-sistema text-xl md:text-4xl">Buenas tardes</h2>`;
+  } else if (
+    result.includes("afternoon") ||
+    result.includes("evening") ||
+    result.includes("noon")
+  ) {
+    rootSay.innerHTML = `<h2 class="text-white text-center font-sistema text-xl md:text-4xl">Buenas tardes${
+      user.trim().length >= 1 ? ", " + user : ""
+    }</h2 >`;
   } else if (result.includes("night")) {
-    rootSay.innerHTML = `<h2 class="text-white text-center font-sistema text-xl md:text-4xl">Buenas noches</h2>`;
+    rootSay.innerHTML = `<h2 class="text-white text-center font-sistema text-xl md:text-4xl">Buenas noches${
+      user.trim().length >= 1 ? ", " + user : ""
+    }</h2>`;
   }
+}
+function setNameUser(e) {
+  localStorage.setItem("name-user", e.target.textContent);
+  sayHello();
 }
