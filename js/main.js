@@ -127,7 +127,6 @@ async function getQuote() {
 function sayHello() {
   const nameUser = document.querySelector("#name-user");
   user = localStorage.getItem("name-user");
-  nameUser.textContent = user;
   nameUser.addEventListener("input", setNameUser);
   const rootSay = document.querySelector(".say");
   const date = new Date();

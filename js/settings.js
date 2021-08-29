@@ -29,6 +29,8 @@ function showDialog(element) {
 function hiddenDialog(e, element) {
   if (e.target.getAttribute("data-dialog-hide") === "")
     element.querySelector("[data-dialog-hide]").setAttribute("hidden", true);
+    const nameUser = document.querySelector("#name-user");
+    nameUser.textContent = localStorage.getItem("name-user");
 }
 
 function optionSelected(e, element) {
