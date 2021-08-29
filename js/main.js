@@ -127,7 +127,7 @@ async function getQuote() {
 function sayHello() {
   const nameUser = document.querySelector("#name-user");
   user = localStorage.getItem("name-user");
-  nameUser.textContent = user;
+  nameUser.textContent ??= user;
   nameUser.addEventListener("input", setNameUser);
   const rootSay = document.querySelector(".say");
   const date = new Date();
@@ -137,7 +137,7 @@ function sayHello() {
   let result = new Intl.DateTimeFormat("en-US", options).format(date);
   if (result.includes("morning")) {
     rootSay.innerHTML = `<h2 class="text-white text-center font-sistema text-xl md:text-4xl">Buenos días${
-      user.trim().length >= 1 ? ", " + user : ""
+      user?.length >= 1 ? ", " + user : ""
     }</h2>;
  `;
   } else if (
@@ -146,15 +146,15 @@ function sayHello() {
     result.includes("noon")
   ) {
     rootSay.innerHTML = `<h2 class="text-white text-center font-sistema text-xl md:text-4xl">Buenas tardes${
-      user.trim().length >= 1 ? ", " + user : ""
+      user?.length >= 1 ? ", " + user : ""
     }</h2 >`;
   } else if (result.includes("night")) {
     rootSay.innerHTML = `<h2 class="text-white text-center font-sistema text-xl md:text-4xl">Buenas noches${
-      user.trim().length >= 1 ? ", " + user : ""
+      user?.length >= 1 ? ", " + user : ""
     }</h2>`;
   }
 }
 function setNameUser(e) {
-  localStorage.setItem("name-user", e.target.textContent);
+  localStorage.setItem("name-user", e.target.textContent.trim());
   sayHello();
 }
