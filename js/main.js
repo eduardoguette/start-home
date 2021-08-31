@@ -42,20 +42,7 @@ function handleForm(e) {
   window.location.href = `https://www.google.com/search?q=${input.value.trim()}`;
   e.target.reset();
 }
-input.addEventListener("input", (e) => {
-  getSugs(e.target.value);
-});
-
-async function getSugs(query) {
-  const url = `https://www.google.com/complete/search?q=${query}&cp=5&client=gws-wiz&xssi=t&hl=es`;
-  try {
-    const resp = await fetch(url);
-    const data = await resp.json();
-  } catch (e) {
-    console.log(e);
-  }
-}
-
+ 
 function addWallpaper(image) {
   const wallpaper = document.querySelector(".wallpaper");
 
