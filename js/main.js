@@ -2,6 +2,13 @@ const button = document.querySelector("button");
 const input = document.querySelector("#query");
 let user;
 
+const start = debounce(
+  () => {
+    paintInfo();
+  },
+  500,
+  true
+);
 (function () {
   if (localStorage.getItem("fav")) {
     document.querySelector("#favorito").setAttribute("aria-selected", true);
@@ -10,20 +17,22 @@ let user;
     document.querySelector(".wallpaper").style = `${api.wallpaper}`;
     document.querySelector(".quote").innerHTML = `${api.quote} `;
     document.querySelector("#info-wallpaper").innerHTML = `${api.info}`;
-  } else {
-    getWallpaper();
-    getQuote();
+    return;
   }
+  start();
 })();
+
+function paintInfo() {
+  getWallpaper();
+  getQuote();
+}
 
 button.addEventListener("click", () => {
   if (
     document.querySelector("#favorito").getAttribute("aria-selected") ===
     "false"
-  ) {
-    getWallpaper();
-    getQuote();
-  }
+  )
+    start();
 });
 
 const form = document.getElementById("form");
@@ -67,6 +76,9 @@ function addWallpaper(image) {
 }
 
 async function getWallpaper() {
+  /* Solo 50 fotos por día
+   const url = "https://api.unsplash.com/photos/random/?client_id=3j0d6XQ7CAPIECX8Srl987CrGxpQLn5g07vL3vgxdco&orientation=landscape&content_filter=high";
+  */
   const url = "https://unsplash.muetab.com/images/random?quality=medium";
   try {
     const resp = await fetch(url);
@@ -156,4 +168,20 @@ function sayHello() {
 function setNameUser(e) {
   localStorage.setItem("name-user", e.target.textContent.trim());
   sayHello();
+}
+function debounce(callback, wait, callFirst) {
+  let timerId;
+  let call = callFirst;
+  return (...args) => {
+    if (call) {
+      callback(...args);
+      call = false;
+      return;
+    }
+    clearTimeout(timerId);
+    timerId = setTimeout(() => {
+      callback(...args);
+      call = callFirst;
+    }, wait);
+  };
 }
