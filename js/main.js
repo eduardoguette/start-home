@@ -2,13 +2,9 @@ const button = document.querySelector("button");
 const input = document.querySelector("#query");
 let user;
 
-const start = debounce(
-  () => {
-    paintInfo();
-  },
-  500,
-  true
-);
+const start = debounce(() => {
+  paintInfo();
+}, 1000);
 (function () {
   if (localStorage.getItem("fav")) {
     document.querySelector("#favorito").setAttribute("aria-selected", true);
@@ -42,7 +38,7 @@ function handleForm(e) {
   window.location.href = `https://www.google.com/search?q=${input.value.trim()}`;
   e.target.reset();
 }
- 
+
 function addWallpaper(image) {
   const wallpaper = document.querySelector(".wallpaper");
 
