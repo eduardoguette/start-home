@@ -5,6 +5,7 @@ let user;
 const start = debounce(() => {
   paintInfo();
 }, 1000);
+
 (function () {
   if (localStorage.getItem("fav")) {
     document.querySelector("#favorito").setAttribute("aria-selected", true);
@@ -152,6 +153,9 @@ function setNameUser(e) {
   localStorage.setItem("name-user", e.target.textContent.trim());
   sayHello();
 }
+function nameUser() {
+  document.querySelector('#name-user').textContent = localStorage.getItem('name-user') 
+}nameUser()
 function debounce(callback, wait, callFirst) {
   let timerId;
   let call = callFirst;
