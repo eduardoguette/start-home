@@ -116,5 +116,29 @@ input:checked ~ div[contenteditable] {
 
 .dialog-fixed {
   -webkit-backdrop-filter: blur(4px);
-  backdrop-filter: blur(4px);
+  /* backdrop-filter: blur(4px); */
+}
+.tooltip::before {
+  content: "";
+  height: 0.6rem;
+  width: 0.6rem;
+  left: 1.2rem;
+  top: -0.2rem;
+  transform: rotate(45deg);
+  position: absolute;
+  z-index: 3;
+  background: white;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+}
+.min-h-24{
+  min-height: 24rem;
+}
+@media (max-width: 700px) and (orientation: landscape) {
+  div[role="dialog"] .settings {
+      height: 16rem;
+  
+  }
 }
