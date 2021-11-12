@@ -45,25 +45,24 @@ function addWallpaper(image) {
 
   wallpaper.className = "wallpaper animate__animated animate__fadeIn";
   wallpaper.style = `
-  background: url('${image.file}') center center no-repeat;
+  background: url('${image.links.download}') center center no-repeat;
   background-size: cover;
   `;
   setTimeout(() => {
     wallpaper.className = "wallpaper";
   }, 1000);
   const author = document.querySelector("#author");
-  author.textContent = image.photographer;
-  author.href = image.photographer_page;
+  author.textContent = image.user.first_name;
+  author.href = image.user.profile_image.medium;
 
   const location = document.querySelector("#location");
-  location.textContent = image.location;
+  location.textContent = image.user.location;
 }
 
 async function getWallpaper() {
-  /* Solo 50 fotos por día
+  /* Solo 50 fotos por día */
    const url = "https://api.unsplash.com/photos/random/?client_id=3j0d6XQ7CAPIECX8Srl987CrGxpQLn5g07vL3vgxdco&orientation=landscape&content_filter=high";
-  */
-  const url = "https://unsplash.muetab.com/images/random?quality=medium";
+  
   try {
     const resp = await fetch(url);
     const data = await resp.json();
@@ -172,3 +171,4 @@ function debounce(callback, wait, callFirst) {
     }, wait);
   };
 }
+
