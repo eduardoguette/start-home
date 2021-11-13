@@ -41,7 +41,7 @@
 
 <body>
   <header class="w-full flex items-center header h-24">
-    <div aria-details="Cambia aleatoreamente tu wallpaper y tu frase">
+    <div aria-label="Cambia aleatoreamente tu wallpaper y tu frase">
       <button
         class="bg-transparent block transform motion-safe:hover:scale-110 text-white px-2 rounded-full m-3 hover:bg-gray-100 hover:bg-opacity-10 h-10"
         aria-label="Refresh" title="Reload Wallpaper">
@@ -56,7 +56,7 @@
         </span>
       </button>
     </div>
-    <div aria-details="Convierte esta fotografía y esta frase en tu favorita">
+    <div aria-label="Convierte esta fotografía y esta frase en tu favorita">
       <button
         class="bg-transparent block transform motion-safe:hover:scale-110 px-2 rounded-full m-3 hover:bg-gray-100 hover:bg-opacity-10 h-10"
         aria-selected="false" role="button" aria-label="Guardar como Favorito" title="Favorito" id="favorito">
@@ -71,7 +71,7 @@
         </svg>
       </button>
     </div>
-    <div aria-details="Ir a Gmail">
+    <div aria-label="Ir a Gmail">
       <a href="https://mail.google.com/mail"
         class="bg-transparent  transform motion-safe:hover:scale-110 text-white px-2 rounded-full m-3 hover:bg-gray-100 hover:bg-opacity-10 h-10 flex items-center "
         rel="noopener noreferrer" target="_blank" title="Ir a Gmail" aria-label="Ir a Gmail">
@@ -85,7 +85,7 @@
         </svg>
       </a>
     </div>
-    <div class="relative" aria-details="Crea notas rápidas">
+    <div class="relative" aria-label="Crea notas rápidas">
       <button id="notes-list"
         class="btn-notes-list bg-transparent block transform motion-safe:hover:scale-110 text-white px-2 rounded-full m-3 hover:bg-gray-100 hover:bg-opacity-10 h-10"
         aria-label="Botón de notas" title="Crear nota">
@@ -116,7 +116,7 @@
         </div>
       </div>
     </div>
-    <div id="settings" class="relative" aria-details="Configura tu perfil">
+    <div id="settings" class="relative" aria-label="Configura tu perfil">
       <button
         class="bg-transparent block transform motion-safe:hover:scale-110 px-2 rounded-full m-3 hover:bg-gray-100 hover:bg-opacity-10 h-10"
         aria-selected="false" aria-label="Ajustes" role="button" title="Ajustes" data-dialog-open>
@@ -205,8 +205,6 @@
 
                   </h2>
                   <div class="flex flex-col my-2 border-b border-gray-200 pb-2 ">
-
-                    
                     <p class="text-sm py-2">
                       Una página de inicio rápido, donde además de ser un buscador, podrás guardar notas y al mismo
                       tiempo tener hermosos paisajes de fondo.
@@ -214,9 +212,11 @@
                     <a href="https://github.com/eduardoguette/start-home" target="_blank" rel="noopener noreferrer">
                       <span class="text-xs hover:text-purple-500">View Code</span>
                     </a>
+                    <div class="about-pics text-xs my-4">
+                      <p>Fotografías gracias a <a href="https://unsplash.com/" class="text-indigo-500 border rounded-md px-2 py-1" target="_blank" rel="noopener noreferrer">Unplash</a> </p>
+                    </div>
                     <div class="credits text-xs mt-2">
                       <p>
-
                         Inspirado en
                         <a href="https://demo.muetab.com/" target="_blank" rel="noopener noreferrer"
                           class="hover:text-purple-500"> Mue</a>
@@ -224,7 +224,7 @@
                     </div>
                   </div>
 
-                  <div class="mt-1  lg:mt-2 text-xs flex flex-col pb-5">
+                  <div class="mt-1  lg:mt-2 text-xs flex flex-col pb-5" aria-label="Acerca del desarrollador">
                     <p>Desarrollado por Eduardo Guette</p>
                     <div class="flex items-center space-x-1 mt-2">
                       <a href="https://www.linkedin.com/in/eduardo-guette/" target="_blank" rel="noopener noreferrer"

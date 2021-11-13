@@ -52,7 +52,7 @@ function addWallpaper(image) {
   }, 1000);
   const author = document.querySelector("#author");
   author.textContent = image.user.first_name;
-  author.href = image.user.profile_image.medium;
+  author.href = image.user.links.html;
 
   const location = document.querySelector("#location");
   location.textContent = image.user.location;
