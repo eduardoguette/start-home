@@ -5,7 +5,6 @@ let user;
 const start = debounce(() => {
   paintInfo();
 }, 1000);
-
 (function () {
   if (localStorage.getItem("fav")) {
     document.querySelector("#favorito").setAttribute("aria-selected", true);
