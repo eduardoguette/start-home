@@ -44,7 +44,7 @@ function addWallpaper(image) {
 
   wallpaper.className = "wallpaper animate__animated animate__fadeIn";
   wallpaper.style = `
-  background: url('${image.links.download}') center center no-repeat;
+  background: url('${image.urls.regular}') center center no-repeat;
   background-size: cover;
   `;
   setTimeout(() => {
@@ -60,7 +60,7 @@ function addWallpaper(image) {
 
 async function getWallpaper() {
   /* Solo 50 fotos por día */
-   const url = "https://api.unsplash.com/photos/random/?client_id=3j0d6XQ7CAPIECX8Srl987CrGxpQLn5g07vL3vgxdco&orientation=landscape&content_filter=high";
+   const url = "https://api.unsplash.com/photos/random/?client_id=3j0d6XQ7CAPIECX8Srl987CrGxpQLn5g07vL3vgxdco&orientation=landscape&&query=nature";
   
   try {
     const resp = await fetch(url);
