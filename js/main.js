@@ -116,8 +116,7 @@ function sayHello() {
     dayPeriod: 'long',
   };
   let result = new Intl.DateTimeFormat('es-ES', options).format(date);
-  console.log(result);
-  if (result.includes('mañana')) {
+  if (result.includes('mañana') || result.includes('manana')) {
     rootSay.innerHTML = `<h2 class="text-white text-center font-sistema text-xl md:text-4xl">Buenos días${user?.length >= 1 ? ', ' + user : ''}</h2>;
  `;
   } else if (result.includes('tarde')) {
