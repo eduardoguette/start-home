@@ -2,7 +2,7 @@ const btns = [];
 document.querySelectorAll("header > div ").forEach((elemento) => {
   const elem = {};
   elem.btn = elemento;
-  elem.data = elemento.getAttribute("aria-details");
+  elem.data = elemento.getAttribute("aria-label");
   btns.push(elem);
 });
 const root = document.querySelector("header");

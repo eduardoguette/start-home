@@ -1,10 +1,12 @@
-const button = document.querySelector("button");
+const button = document.querySelector('button[title="Reload Wallpaper"]');
+
 const input = document.querySelector("#query");
 let user;
 
 const start = debounce(() => {
-  paintInfo();
-}, 1000);
+  getQuote();
+  getWallpaper();
+}, 200);
 (function () {
   if (localStorage.getItem("fav")) {
     document.querySelector("#favorito").setAttribute("aria-selected", true);
@@ -18,10 +20,7 @@ const start = debounce(() => {
   start();
 })();
 
-function paintInfo() {
-  getWallpaper();
-  getQuote();
-}
+
 
 button.addEventListener("click", () => {
   if (
@@ -41,10 +40,9 @@ function handleForm(e) {
 
 function addWallpaper(image) {
   const wallpaper = document.querySelector(".wallpaper");
-
   wallpaper.className = "wallpaper animate__animated animate__fadeIn";
   wallpaper.style = `
-  background: url('${image.urls.regular}') center center no-repeat;
+  background: url('${image.urls.regular.replace("1080", "1440")}') center center no-repeat;
   background-size: cover;
   `;
   setTimeout(() => {
@@ -96,10 +94,10 @@ setInterval(() => {
 function addQuote(data) {
   const rootQuote = document.querySelector(".quote");
   rootQuote.innerHTML = `
-    <h2 class="text-lg font-medium animate__animated animate__flipInX">${
+    <h2 class="text-lg font-medium">${
       data.text
     }</h2>
-    <small class="text-md animate__animated animate__flipInX">${
+    <small class="text-md ">${
       data.author || "Unknown"
     }</small>
   `;
