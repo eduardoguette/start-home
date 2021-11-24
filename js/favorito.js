@@ -1,12 +1,11 @@
 (function () {
   const btn = document.querySelector("#favorito");
-  btn.addEventListener("click", (e) => {
-    e.target.querySelector("svg").classList.toggle("text-white");
-    if (e.target.getAttribute("aria-selected") === "false") {
-      e.target.setAttribute("aria-selected", true);
-    } else {
-      e.target.setAttribute("aria-selected", false);
-    }
+  btn.addEventListener("click", ({target}) => {
+    target.querySelector("svg").classList.toggle("text-white");
+
+    let selected = target.getAttribute("aria-selected") === "false"
+    target.setAttribute("aria-selected", !selected);
+
     if (localStorage.getItem("fav")) {
       localStorage.removeItem("fav");
       return;

@@ -14,12 +14,12 @@
   <title>Start Home</title>
 
   <!-- Meta tags for SEO and social sharing -->
-  <link rel="canonical" href="https://github.com/eduardoguette/start-home" />
+  <link rel="canonical" href="https://start-home.netlify.app/" />
   <meta name="description" content="Busca, guarda, comparte y más" />
   <meta name="robots" content="index,follow" />
   <meta property="og:title" content="Start Home" />
   <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://github.com/eduardoguette/start-home" />
+  <meta property="og:url" content="https://start-home.netlify.app/" />
   <meta property="og:description" content="Busca, guarda, comparte y más" />
 
   <meta property="og:image:width" content="770">
@@ -37,7 +37,8 @@
     rel="stylesheet">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  <script src="js/main.js" async ></script>
+  <script src="js/main.js" type="module"></script>
+  
 
 </head>
 
@@ -61,7 +62,7 @@
     <div aria-label="Convierte esta fotografía y esta frase en tu favorita">
       <button
         class="bg-transparent block transform motion-safe:hover:scale-110 px-2 rounded-full m-3 hover:bg-gray-100 hover:bg-opacity-10 h-10"
-        aria-selected="false" role="button" aria-label="Guardar como Favorito" title="Favorito" id="favorito">
+        aria-selected="false" role="button" aria-label="Guardar como Favorito" title="Guardar wallpaper como favorito" id="favorito">
         <svg xmlns="http://www.w3.org/2000/svg"
           class="icon text-transparent icon-tabler icon-tabler-star pointer-events-none" width="24" height="24"
           viewBox="0 0 24 24" stroke-width="2" stroke="white" fill="currentColor" stroke-linecap="round"
@@ -293,10 +294,7 @@
     </div>
   </footer>
   
-  <script src="js/favotiro.js" defer></script>
-  <script src="js/notes.js" defer></script>
-  <script src="js/settings.js" defer></script> 
-  <script src="js/visita-guiada.js" defer></script>
+
 </body>
 
 </html>

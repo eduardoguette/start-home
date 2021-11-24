@@ -1,17 +1,17 @@
 function dialog(selector) {
   const element = document.querySelector(selector);
 
-  openers = [...element.querySelectorAll("[data-dialog-open]")];
+  const openers = [...element.querySelectorAll("[data-dialog-open]")];
   openers.forEach((opener) =>
     opener.addEventListener("click", () => showDialog(element))
   );
 
-  closers = [...element.querySelectorAll("[data-dialog-hide]")];
+  const closers = [...element.querySelectorAll("[data-dialog-hide]")];
   closers.forEach((closer) =>
     closer.addEventListener("click", (e) => hiddenDialog(e, element))
   );
 
-  options = [...element.querySelectorAll("[data-option]")];
+  const options = [...element.querySelectorAll("[data-option]")];
   options.forEach((option) => {
     optionState(element);
     option.addEventListener("click", (e) => optionSelected(e, element));
@@ -50,7 +50,7 @@ function optionSelected(e, element) {
 }
 
 function optionState(element) {
-  options = [...element.querySelectorAll("[data-option]")];
+  const options = [...element.querySelectorAll("[data-option]")];
   options.forEach((option) => {
     if (option.getAttribute("aria-selected") === "true") {
       option.classList.add("bg-purple-600", "text-white");

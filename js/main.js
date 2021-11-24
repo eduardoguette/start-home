@@ -1,6 +1,11 @@
-const button = document.querySelector('button[title="Reload Wallpaper"]');
+import { $ } from './domElements.js';
+import './favorito.js';
+import './notes.js';
+import './visita-guiada.js';
+import './settings.js';
+const button = $('button[title="Reload Wallpaper"]');
 
-const input = document.querySelector('#query');
+const input = $('#query');
 let user;
 
 const start = debounce(() => {
@@ -9,19 +14,19 @@ const start = debounce(() => {
 }, 200);
 (function () {
   if (localStorage.getItem('fav')) {
-    document.querySelector('#favorito').setAttribute('aria-selected', true);
-    document.querySelector('#favorito svg').classList.add('text-white');
+    $('#favorito').setAttribute('aria-selected', true);
+    $('#favorito svg').classList.add('text-white');
     const api = JSON.parse(localStorage.getItem('fav'));
-    document.querySelector('.wallpaper').style = `${api.wallpaper}`;
-    document.querySelector('.quote').innerHTML = `${api.quote} `;
-    document.querySelector('#info-wallpaper').innerHTML = `${api.info}`;
+    $('.wallpaper').style = `${api.wallpaper}`;
+    $('.quote').innerHTML = `${api.quote} `;
+    $('#info-wallpaper').innerHTML = `${api.info}`;
     return;
   }
   start();
 })();
 
 button.addEventListener('click', () => {
-  if (document.querySelector('#favorito').getAttribute('aria-selected') === 'false') start();
+  if ($('#favorito').getAttribute('aria-selected') === 'false') start();
 });
 
 const form = document.getElementById('form');
@@ -33,7 +38,7 @@ function handleForm(e) {
 }
 
 function addWallpaper(image) {
-  const wallpaper = document.querySelector('.wallpaper');
+  const wallpaper = $('.wallpaper');
   wallpaper.className = 'wallpaper animate__animated animate__fadeIn';
   wallpaper.style = `
   background: url('${image.urls.regular.replace('1080', '1440')}') center center no-repeat;
@@ -42,16 +47,15 @@ function addWallpaper(image) {
   setTimeout(() => {
     wallpaper.className = 'wallpaper';
   }, 1000);
-  const author = document.querySelector('#author');
+  const author = $('#author');
   author.textContent = image.user.first_name;
   author.href = image.user.links.html;
 
-  const location = document.querySelector('#location');
+  const location = $('#location');
   location.textContent = image.user.location;
 }
 
 async function getWallpaper() {
-  /* Solo 50 fotos por día */
   const url = 'https://api.unsplash.com/photos/random/?client_id=3j0d6XQ7CAPIECX8Srl987CrGxpQLn5g07vL3vgxdco&orientation=landscape&&query=nature';
 
   try {
@@ -73,7 +77,7 @@ function addTime() {
     dateStyle: 'long',
   });
   const hour = o.format(Date.now());
-  const rootClock = document.querySelector('.clock');
+  const rootClock = $('.clock');
 
   rootClock.innerHTML = `
     <h1 class="font-semibold text-7xl md:text-9xl">${hour}</h1>
@@ -86,7 +90,7 @@ setInterval(() => {
 }, 60000);
 
 function addQuote(data) {
-  const rootQuote = document.querySelector('.quote');
+  const rootQuote = $('.quote');
   rootQuote.innerHTML = `
     <h2 class="text-lg font-medium">${data.text}</h2>
     <small class="text-md ">${data.author || 'Unknown'}</small>
@@ -107,30 +111,31 @@ async function getQuote() {
 }
 
 function sayHello() {
-  const nameUser = document.querySelector('#name-user');
+  const nameUser = $('#name-user');
   user = localStorage.getItem('name-user');
   nameUser.addEventListener('input', setNameUser);
-  const rootSay = document.querySelector('.say');
+  const rootSay = $('.say');
   const date = new Date();
   const options = {
     dayPeriod: 'long',
   };
   let result = new Intl.DateTimeFormat('es-ES', options).format(date);
-  if (result.includes('mañana') || result.includes('manana')) {
-    rootSay.innerHTML = `<h2 class="text-white text-center font-sistema text-xl md:text-4xl">Buenos días${user?.length >= 1 ? ', ' + user : ''}</h2>;
- `;
-  } else if (result.includes('tarde')) {
-    rootSay.innerHTML = `<h2 class="text-white text-center font-sistema text-xl md:text-4xl">Buenas tardes${user?.length >= 1 ? ', ' + user : ''}</h2 >`;
+  const userName = user?.length >= 1 ? ', ' + user : '';
+  let greeting = "Buenos días"
+  
+  if (result.includes('tarde')) {
+    greeting = "Buenas tardes"
   } else if (result.includes('noche')) {
-    rootSay.innerHTML = `<h2 class="text-white text-center font-sistema text-xl md:text-4xl">Buenas noches${user?.length >= 1 ? ', ' + user : ''}</h2>`;
+    greeting = "Buenas noches"
   }
+  rootSay.innerHTML = `<h2 class="text-white text-center font-sistema text-xl md:text-4xl">${greeting}${userName}</h2>`;
 }
 function setNameUser(e) {
   localStorage.setItem('name-user', e.target.textContent.trim());
   sayHello();
 }
 function nameUser() {
-  document.querySelector('#name-user').textContent = localStorage.getItem('name-user');
+  $('#name-user').textContent = localStorage.getItem('name-user');
 }
 nameUser();
 function debounce(callback, wait, callFirst) {
