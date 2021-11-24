@@ -34,12 +34,12 @@ function hiddenDialog(e, element) {
 
 function optionSelected(e, element) {
   const id = e.target.getAttribute("data-option");
-  options = [...element.querySelectorAll("[data-option]")];
+  const options = [...element.querySelectorAll("[data-option]")];
   options.forEach((option) => option.setAttribute("aria-selected", false));
   e.target.setAttribute("aria-selected", true);
   optionState(element);
 
-  selections = [...element.querySelectorAll("[data-selected]")];
+  const selections = [...element.querySelectorAll("[data-selected]")];
   selections.forEach((selection) => {
     if (id === selection.getAttribute("data-selected")) {
       selection.removeAttribute("hidden");
