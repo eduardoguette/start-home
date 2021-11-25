@@ -3,7 +3,7 @@
   btn.addEventListener("click", ({target}) => {
     target.querySelector("svg").classList.toggle("text-white");
 
-    let selected = target.getAttribute("aria-selected") === "false"
+    let selected = JSON.parse(target.getAttribute("aria-selected"))
     target.setAttribute("aria-selected", !selected);
 
     if (localStorage.getItem("fav")) {

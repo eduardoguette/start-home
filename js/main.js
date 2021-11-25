@@ -1,17 +1,18 @@
-import { $ } from './domElements.js';
+import { $, btnReloadWallpaper, input } from './domElements.js';
 import './favorito.js';
 import './notes.js';
 import './visita-guiada.js';
 import './settings.js';
-const button = $('button[title="Reload Wallpaper"]');
 
-const input = $('#query');
 let user;
 
-const start = debounce(() => {
+const start = () => {
   getQuote();
   getWallpaper();
-}, 200);
+  addTime();
+  nameUser();
+};
+
 (function () {
   if (localStorage.getItem('fav')) {
     $('#favorito').setAttribute('aria-selected', true);
@@ -25,34 +26,44 @@ const start = debounce(() => {
   start();
 })();
 
-button.addEventListener('click', () => {
-  if ($('#favorito').getAttribute('aria-selected') === 'false') start();
-});
+btnReloadWallpaper.addEventListener('click', () => !JSON.parse($('#favorito').getAttribute('aria-selected')) && start());
 
 const form = document.getElementById('form');
 form.addEventListener('submit', handleForm);
+
 function handleForm(e) {
   e.preventDefault();
   window.location.href = `https://www.google.com/search?q=${input.value.trim()}`;
   e.target.reset();
 }
 
-function addWallpaper(image) {
+function addWallpaper(data) {
+  const {
+    user: {
+      links: { html: link_profile },
+      first_name,
+      location,
+    },
+    urls: { regular },
+  } = data;
+
   const wallpaper = $('.wallpaper');
   wallpaper.className = 'wallpaper animate__animated animate__fadeIn';
   wallpaper.style = `
-  background: url('${image.urls.regular.replace('1080', '1440')}') center center no-repeat;
+  background: url('${regular.replace('1080', '1440')}') center center no-repeat;
   background-size: cover;
   `;
   setTimeout(() => {
     wallpaper.className = 'wallpaper';
-  }, 1000);
+  }, 400);
   const author = $('#author');
-  author.textContent = image.user.first_name;
-  author.href = image.user.links.html;
+  author.textContent = first_name;
+  author.href = link_profile;
 
-  const location = $('#location');
-  location.textContent = image.user.location;
+  const $location = $('#location');
+
+  $location.style = 'display:none;';
+  $location.textContent = location;
 }
 
 async function getWallpaper() {
@@ -84,7 +95,7 @@ function addTime() {
     <p class="text-center sm:text-xl mb-6">${date.format(Date.now())}</p>
   `;
 }
-addTime();
+
 setInterval(() => {
   addTime();
 }, 60000);
@@ -121,36 +132,19 @@ function sayHello() {
   };
   let result = new Intl.DateTimeFormat('es-ES', options).format(date);
   const userName = user?.length >= 1 ? ', ' + user : '';
-  let greeting = "Buenos días"
-  
+  let greeting = 'Buenos días';
+
   if (result.includes('tarde')) {
-    greeting = "Buenas tardes"
+    greeting = 'Buenas tardes';
   } else if (result.includes('noche')) {
-    greeting = "Buenas noches"
+    greeting = 'Buenas noches';
   }
   rootSay.innerHTML = `<h2 class="text-white text-center font-sistema text-xl md:text-4xl">${greeting}${userName}</h2>`;
 }
-function setNameUser(e) {
-  localStorage.setItem('name-user', e.target.textContent.trim());
+function setNameUser({ target }) {
+  localStorage.setItem('name-user', target.textContent.trim());
   sayHello();
 }
 function nameUser() {
   $('#name-user').textContent = localStorage.getItem('name-user');
-}
-nameUser();
-function debounce(callback, wait, callFirst) {
-  let timerId;
-  let call = callFirst;
-  return (...args) => {
-    if (call) {
-      callback(...args);
-      call = false;
-      return;
-    }
-    clearTimeout(timerId);
-    timerId = setTimeout(() => {
-      callback(...args);
-      call = callFirst;
-    }, wait);
-  };
 }
