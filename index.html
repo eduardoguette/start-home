@@ -103,18 +103,18 @@
         </svg>
 
       </button>
-      <div class="notes-list__list hidden">
+      <div class="notes-list__list hidden rounded-md overflow-hidden">
         <div class="h-3 w-3 z-10 bg-white absolute top-14 left-7 transform rotate-45"></div>
         <div
-          class="absolute max-h-96 overflow-y-scroll -left-28 md:left-0 z-10 bg-white top-14 notes rounded-md px-2 pt-4 pb-3 mt-1 shadow-md w-72"
+          class="absolute  -left-28 md:left-0 z-10 bg-white top-14 notes rounded-md  mt-1 shadow-md w-72 "
           role="Lista de notas">
-          <p id="cant-notes" class="font-medium py-3 px-2 text-sm">No tienes nada pendiente.</p>
-          <div id="notes" class=" flex flex-col space-y-2 ">
+          <p id="cant-notes" class="font-medium pt-5 px-5 text-sm">No tienes nada pendiente.</p>
+          <div id="notes" class=" flex flex-col space-y-2 overflow-y-scroll overflow-x-hidden max-h-96 px-3 py-3">
 
 
           </div>
           <button id="new-note"
-            class="font-semibold text-sm text-gray-800 hover:bg-gray-200 rounded-md ml-2 mt-2 py-2 px-2 w-24 text-left">+
+            class="font-semibold text-sm text-gray-800 hover:bg-gray-200 rounded-md ml-5 py-2 px-2 w-24 text-left my-2">+
             New</button>
         </div>
       </div>
@@ -138,15 +138,15 @@
         class="fixed bg-black bg-opacity-30 backdrop-filter inset-0 z-20 text-black backdrop-blur-lg dialog-fixed"
         data-dialog-hide>
         <div
-          class="settings bg-white absolute inset-0 h-96 lg:h-96 overflow-y-scroll w-10/12 md:w-8/12 lg:w-7/12 xl:w-4/12 m-auto rounded-md ">
+          class="settings bg-white absolute inset-0 h-96 lg:h-96  w-10/12 md:w-8/12 lg:w-7/12 xl:w-4/12 m-auto rounded-md ">
           <button class="absolute right-3 top-3 rounded-full p-2 hover:bg-gray-200" type="button" data-dialog-hide>
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4  pointer-events-none" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
-          <div class="settings__menu flex ">
-            <div class="bg-gray-100 h-auto w-16 md:w-7/12 pt-6 pb-10">
+          <div class="settings__menu flex h-96 overflow-hidden rounded-md">
+            <div class="bg-gray-100 w-16 md:w-7/12 pt-6 pb-10 overflow-hidden">
               <h4 class="md:text-2xl font-bold px-4 mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" class="md:hidden icon icon-tabler icon-tabler-settings"
                   width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
@@ -181,7 +181,7 @@
                 <span class="hidden md:block pointer-events-none">Información</span>
               </button>
             </div>
-            <div class="w-full py-16 px-4 min-h-24">
+            <div class="w-full py-16 px-4 min-h-24 overflow-y-scroll">
               <div data-selected="1">
                 <h4 class="font-bold text-lg -mt-6 px-1 pb-2">Usuario</h4>
                 <div id="name-user"
