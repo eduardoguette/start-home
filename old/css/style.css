@@ -1,0 +1,144 @@
+:root {
+  --font-family: Inter, system-ui, sans-serif;
+}
+
+/* Basic page style resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+[hidden] {
+  display: none !important;
+}
+
+body {
+  background-color: black;
+
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+.notes {
+  scroll-behavior: smooth;
+}
+[aria-expanded="true"] {
+  display: block;
+}
+[aria-expanded="false"] {
+  display: none;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main {
+  height: 80vh; 
+}
+.wallpaper {
+  inset: 0;
+  z-index: -1;
+  position: fixed;
+  filter: brightness(0.6);
+  -webkit-filter: brightness(0.6);
+}
+.quote,
+.clock {
+  width: min(800px, 90%);
+  margin: 0 auto;
+  color: white;
+  text-align: center;
+}
+.quote small {
+  display: block;
+  margin-block: 1rem;
+}
+/* notes */
+
+div[contenteditable] {
+  position: relative;
+  cursor: pointer;
+}
+[contenteditable][placeholder]:empty:before {
+  content: attr(placeholder);
+  color: #555;
+}
+input[type="checkbox"] {
+  transform: scale(1.5);
+}
+
+input:checked ~ div[contenteditable] {
+  color: #959595;
+  text-decoration: line-through;
+}
+
+::-webkit-scrollbar {
+  height: 3px;
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  width: 2px;
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: #999999;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #747474;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos track de scroll */
+::-webkit-scrollbar-track {
+  background: #e1e1e1;
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
+
+::-webkit-scrollbar-track:hover,
+::-webkit-scrollbar-track:active {
+  background: #d4d4d4;
+}
+
+.dialog-fixed {
+  -webkit-backdrop-filter: blur(4px);
+  /* backdrop-filter: blur(4px); */
+}
+.tooltip::before {
+  content: "";
+  height: 0.6rem;
+  width: 0.6rem;
+  left: 1.2rem;
+  top: -0.2rem;
+  transform: rotate(45deg);
+  position: absolute;
+  z-index: 3;
+  background: white;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+}
+.min-h-24{
+  min-height: 24rem;
+}
+@media (max-width: 700px) and (orientation: landscape) {
+  div[role="dialog"] .settings {
+      height: 16rem;
+  
+  }
+}
