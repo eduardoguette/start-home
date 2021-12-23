@@ -13,7 +13,7 @@ const start = () => {
   nameUser();
 };
 
-(function () {
+(function () { 
   if (localStorage.getItem('fav')) {
     $('#favorito').setAttribute('aria-selected', true);
     $('#favorito svg').classList.add('text-white');
@@ -21,7 +21,7 @@ const start = () => {
     $('.wallpaper').style = `${api.wallpaper}`;
     $('.quote').innerHTML = `${api.quote} `;
     $('#info-wallpaper').innerHTML = `${api.info}`;
-    return;
+     
   }
   start();
 })();
@@ -88,12 +88,12 @@ function addTime() {
     dateStyle: 'long',
   });
   const hour = o.format(Date.now());
-  const rootClock = $('.clock');
-
+  const rootClock = $('.clock'); 
   rootClock.innerHTML = `
     <h1 class="font-semibold text-7xl md:text-9xl">${hour}</h1>
     <p class="text-center sm:text-xl mb-6">${date.format(Date.now())}</p>
   `;
+
 }
 
 setInterval(() => {
