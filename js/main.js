@@ -1,4 +1,5 @@
 import { $, btnReloadWallpaper, input } from './domElements.js';
+import "../css/index.css"
 import './favorito.js';
 import './notes.js';
 import './visita-guiada.js';
@@ -16,7 +17,7 @@ const start = () => {
 (function () {
   if (localStorage.getItem('fav')) {
     $('#favorito').setAttribute('aria-selected', true);
-    $('#favorito svg').classList.add('text-white');
+    $('#favorito svg .fill').classList.add('text-white');
     const api = JSON.parse(localStorage.getItem('fav'));
     $('.wallpaper').style = `${api.wallpaper}`;
     $('.quote').innerHTML = `${api.quote} `;
@@ -62,10 +63,11 @@ function addWallpaper(data) {
   author.textContent = first_name;
   author.href = link_profile;
 
-  const $location = $('#location');
-
-  $location.style = 'display:none;';
-  $location.textContent = location;
+  if(!location) {
+    $('.location-wrapper').classList.add('hidden')
+  }else{
+   $('#location').textContent = location
+  }
 }
 
 async function getWallpaper() {

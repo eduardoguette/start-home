@@ -1,27 +1,28 @@
+import { $ } from '/js/domElements.js';
 (function () {
-  const btn = document.querySelector("#favorito");
-  btn.addEventListener("click", ({target}) => {
-    target.querySelector("svg").classList.toggle("text-white");
+  const btn = $('#favorito');
+  btn.addEventListener('click', ({ target }) => {
+    target.querySelector('svg .fill').classList.toggle('text-white');
 
-    let selected = JSON.parse(target.getAttribute("aria-selected"))
-    target.setAttribute("aria-selected", !selected);
+    let selected = JSON.parse(target.getAttribute('aria-selected'));
+    target.setAttribute('aria-selected', !selected);
 
-    if (localStorage.getItem("fav")) {
-      localStorage.removeItem("fav");
+    if (localStorage.getItem('fav')) {
+      localStorage.removeItem('fav');
       return;
     }
     saveWallpaper();
   });
 
+ 
+
   function saveWallpaper() {
-    const wallpaper = String(
-      document.querySelector(".wallpaper").getAttribute("style")
-    );
-    const quote = document.querySelector(".quote").innerHTML;
-    const info = document.querySelector("#info-wallpaper").innerHTML;
+    const wallpaper = String($('.wallpaper').getAttribute('style'));
+    const quote = $('.quote').innerHTML;
+    const info = $('#info-wallpaper').innerHTML;
 
     localStorage.setItem(
-      "fav",
+      'fav',
       JSON.stringify({
         wallpaper,
         quote,

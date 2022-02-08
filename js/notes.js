@@ -1,3 +1,4 @@
+import {$} from "./domElements"
 (function () {
   let toDos;
   localStorage.getItem("notes")
@@ -5,7 +6,7 @@
     : (toDos = []);
   toDos = toDos.filter(todo => todo.content)
   localStorage.setItem("notes", JSON.stringify(toDos))
-  const btnNewNote = document.querySelector("#new-note");
+  const btnNewNote = $("#new-note");
   btnNewNote.addEventListener("click", addNote);
   function addNote() {
     const note = {};
@@ -15,7 +16,7 @@
     note.id = idNote;
 
     closeToolTip();
-    const notes = document.querySelector("#notes");
+    const notes = $("#notes");
 
     const wrapperNote = document.createElement("div");
     wrapperNote.className =
@@ -59,7 +60,7 @@
           <circle cx="12" cy="5" r="1"></circle>
         </svg>
       </button>
-      <ul class="absolute bg-white hidden overflow-hidden rounded-md shadow-sm  -left-44 -top-7 border " aria-expanded="false">
+      <ul class="absolute bg-white hidden overflow-hidden rounded-md shadow-sm  -left-44 -top-7 border z-20" aria-expanded="false">
         <li>
           <button id="btn-copy" class=" py-2 w-44 px-3 text-left flex items-center gap-2 text-sm hover:bg-indigo-400 hover:text-white">
             <svg class="pointer-events-none" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-paperclip" width="16"
@@ -115,11 +116,13 @@
   }
 
   function eventsNote(note) {
-    note.querySelector("#btn-tooltip").addEventListener("click", (e) => {
-      const toggle = e.target.nextElementSibling.getAttribute("aria-expanded");
+    note.querySelector("#btn-tooltip").addEventListener("click", (e) => { 
+      const noteMenu =e.target.nextElementSibling;
+      noteMenu.classList.remove('hidden')
+      const toggle = noteMenu.getAttribute("aria-expanded");
       closeToolTip();
       if (toggle === "false") {
-        e.target.nextElementSibling.setAttribute("aria-expanded", "true");
+        noteMenu.setAttribute("aria-expanded", "true");
       } else {
         closeToolTip();
       }
@@ -166,9 +169,9 @@
     }
   }
 
-  document.querySelector("header").addEventListener("click", (e) => {
+  $("header").addEventListener("click", (e) => {
     if (e.target.matches(".btn-notes-list")) {
-      document.querySelector(".notes-list__list").classList.toggle("hidden");
+      $(".notes-list__list").classList.toggle("hidden");
       closeToolTip();
     }
   });

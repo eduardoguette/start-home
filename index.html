@@ -6,8 +6,7 @@
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="icon" href="images/log.svg" />
-
-  <link href="./css/tailwind.css" rel="stylesheet" />
+ 
   <style>
  :root{ --font-family: Inter, system-ui, sans-serif}*{ margin: 0; padding: 0; box-sizing: border-box; font-family: var(--font-family)}[hidden]{ display: none !important}body{ background-color: black; display: grid; grid-template-rows: auto 1fr auto}.notes{ scroll-behavior: smooth}[aria-expanded="true"]{ display: block}[aria-expanded="false"]{ display: none}.content{ display: flex; flex-direction: column; justify-content: center; align-items: center}main{ height: 80vh;}.wallpaper{ inset: 0; z-index: -1; position: fixed; filter: brightness(0.6); -webkit-filter: brightness(0.6)}.quote,.clock{ width: min(800px, 90%); margin: 0 auto; color: white; text-align: center}.quote small{ display: block; margin-block: 1rem}div[contenteditable]{ position: relative; cursor: pointer}[contenteditable][placeholder]:empty:before{ content: attr(placeholder); color: #555}input[type="checkbox"]{ transform: scale(1.5)}input:checked ~ div[contenteditable]{ color: #959595; text-decoration: line-through}::-webkit-scrollbar{ height: 3px; width: 5px}::-webkit-scrollbar-thumb{ background: #ccc; width: 2px; border-radius: 1rem; -webkit-border-radius: 1rem; -moz-border-radius: 1rem; -ms-border-radius: 1rem; -o-border-radius: 1rem}::-webkit-scrollbar-thumb:active{ background-color: #999999}::-webkit-scrollbar-thumb:hover{ background: #747474; box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2)}::-webkit-scrollbar-track{ background: #e1e1e1; border-radius: 1rem; -webkit-border-radius: 1rem; -moz-border-radius: 1rem; -ms-border-radius: 1rem; -o-border-radius: 1rem}::-webkit-scrollbar-track:hover,::-webkit-scrollbar-track:active{ background: #d4d4d4}.dialog-fixed{ -webkit-backdrop-filter: blur(4px); }.tooltip::before{ content: ""; height: 0.6rem; width: 0.6rem; left: 1.2rem; top: -0.2rem; transform: rotate(45deg); position: absolute; z-index: 3; background: white; -webkit-transform: rotate(45deg); -moz-transform: rotate(45deg); -ms-transform: rotate(45deg); -o-transform: rotate(45deg)}.min-h-24{ min-height: 24rem}@media (max-width: 700px) and (orientation: landscape){ div[role="dialog"] .settings{ height: 16rem;}}.justify-center{ justify-content: center}.flex-col{ flex-direction: column}.flex{ display: flex}
   </style>
@@ -29,15 +28,14 @@
     content="https://raw.githubusercontent.com/eduardoguette/start-home/main/assets/desktop.jpg" />
   <meta name="twitter:card" content="summary" />
 
-  <!-- Import the webpage's stylesheet -->
-  <link rel="stylesheet" href="css/style.css" />
+  <!-- Import the webpage's stylesheet --> 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  <script src="js/main.js" type="module"></script>
+  <script type="module" src="/js/main.js" ></script>
   
 
 </head>
@@ -67,8 +65,8 @@
           class="icon text-transparent icon-tabler icon-tabler-star pointer-events-none" width="24" height="24"
           viewBox="0 0 24 24" stroke-width="2" stroke="white" fill="currentColor" stroke-linecap="round"
           stroke-linejoin="round">
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-          <path
+          <path stroke="none" d="M0 0h24v24H0z" ></path>
+          <path class="fill" fill="currentColor"
             d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z">
           </path>
         </svg>
@@ -92,7 +90,7 @@
       <button id="notes-list"
         class="btn-notes-list bg-transparent block transform motion-safe:hover:scale-110 text-white px-2 rounded-full m-3 hover:bg-gray-100 hover:bg-opacity-10 h-10"
         aria-label="Botón de notas" title="Crear nota">
-        <svg class="pointer-events-none" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-notes"
+        <svg class="pointer-events-none" xmlns="http://www.w3.org/2000/svg"
           width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
           stroke-linecap="round" stroke-linejoin="round">
           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -106,10 +104,10 @@
       <div class="notes-list__list hidden rounded-md overflow-hidden">
         <div class="h-3 w-3 z-10 bg-white absolute top-14 left-7 transform rotate-45"></div>
         <div
-          class="absolute  -left-28 md:left-0 z-10 bg-white top-14 notes rounded-md  mt-1 shadow-md w-72 "
+          class="absolute  -left-28 md:left-0 z-10 bg-white top-14 notes rounded-md  mt-1 shadow-md w-72"
           role="Lista de notas">
           <p id="cant-notes" class="font-medium pt-5 px-5 text-sm">No tienes nada pendiente.</p>
-          <div id="notes" class=" flex flex-col space-y-2 overflow-y-scroll overflow-x-hidden max-h-96 px-3 py-3">
+          <div id="notes" class=" flex flex-col space-y-2 px-3 py-3">
 
 
           </div>
@@ -253,7 +251,6 @@
                             d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z">
                           </path>
                         </svg>
-                        </svg>
                       </a>
                     </div>
                   </div>
@@ -283,7 +280,7 @@
   <div class="wallpaper"></div>
   <footer id="info-wallpaper" class="px-4 py-2 text-white flex justify-between w-full md:absolute bottom-2">
     <a href="" target="_blank" rel="noopener noreferrer" class="block hover:text-indigo-400" id="author"></a>
-    <div class="flex items-center">
+    <div class="flex items-center location-wrapper w-22 md:w-[initial]">
 
       <p class="text-right" id="location"></p>
       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
