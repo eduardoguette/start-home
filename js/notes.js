@@ -20,7 +20,7 @@ import {$} from "./domElements"
 
     const wrapperNote = document.createElement("div");
     wrapperNote.className =
-      "note px-3 flex items-center space-x-3 animate__animated  animate__flipInX";
+      "flex items-center px-3 space-x-3 note animate__animated animate__flipInX";
     wrapperNote.dataset.id = idNote;
     const inputNote = document.createElement("input");
     inputNote.type = "checkbox";
@@ -34,7 +34,7 @@ import {$} from "./domElements"
     divContentNote.contentEditable = true;
     divContentNote.setAttribute("placeholder", "To-do");
     divContentNote.className =
-      "outline-none focus:ring focus:ring-indigo-300 hover:bg-gray-100 w-64  max-w-full rounded px-2 py-1 block";
+      "outline-none focus:ring focus:ring-indigo-300 hover:bg-gray-100 rounded px-2 py-1 block w-[165px]";
     divContentNote.onkeydown = (e) => {
       if (e.code === "Enter") {
         e.preventDefault();
@@ -239,7 +239,7 @@ import {$} from "./domElements"
       if (elem.content) {
         const divWrapper = document.createElement("div");
         divWrapper.className =
-          "note px-3 flex items-center space-x-3 animate__animated  animate__flipInX";
+          "flex items-center px-3 space-x-3 note animate__animated animate__flipInX";
         divWrapper.dataset.id = elem.id;
 
         divWrapper.innerHTML = elem.content;
