@@ -1,5 +1,6 @@
 import { $, btnReloadWallpaper, input } from './domElements.js';
-import "../css/index.css"
+import { quotes } from '../data/quotes.js';
+import '../css/index.css';
 import './favorito.js';
 import './notes.js';
 import './visita-guiada.js';
@@ -63,10 +64,10 @@ function addWallpaper(data) {
   author.textContent = first_name;
   author.href = link_profile;
 
-  if(!location) {
-    $('.location-wrapper').classList.add('hidden')
-  }else{
-   $('#location').textContent = location
+  if (!location) {
+    $('.location-wrapper').classList.add('hidden');
+  } else {
+    $('#location').textContent = location;
   }
 }
 
@@ -111,17 +112,10 @@ function addQuote(data) {
   `;
 }
 
-async function getQuote() {
-  const url = './data/quotes.json';
-  try {
-    const resp = await fetch(url);
-    const data = await resp.json();
-    const quote = Math.floor(Math.random() * data.length);
+function getQuote() {
+  const quote = Math.floor(Math.random() * quotes.length);
 
-    addQuote(data[quote]);
-  } catch (e) {
-    console.log(e);
-  }
+  addQuote(quotes[quote]);
 }
 
 function sayHello() {
