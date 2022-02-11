@@ -8,7 +8,8 @@
   <link rel="icon" href="images/log.svg" />
  
   <style>
- :root{ --font-family: Inter, system-ui, sans-serif}*{ margin: 0; padding: 0; box-sizing: border-box; font-family: var(--font-family)}[hidden]{ display: none !important}body{ background-color: black; display: grid; grid-template-rows: auto 1fr auto}.notes{ scroll-behavior: smooth}[aria-expanded="true"]{ display: block}[aria-expanded="false"]{ display: none}.content{ display: flex; flex-direction: column; justify-content: center; align-items: center}main{ height: 80vh;}.wallpaper{ inset: 0; z-index: -1; position: fixed; filter: brightness(0.6); -webkit-filter: brightness(0.6)}.quote,.clock{ width: min(800px, 90%); margin: 0 auto; color: white; text-align: center}.quote small{ display: block; margin-block: 1rem}div[contenteditable]{ position: relative; cursor: pointer}[contenteditable][placeholder]:empty:before{ content: attr(placeholder); color: #555}input[type="checkbox"]{ transform: scale(1.5)}input:checked ~ div[contenteditable]{ color: #959595; text-decoration: line-through}::-webkit-scrollbar{ height: 3px; width: 5px}::-webkit-scrollbar-thumb{ background: #ccc; width: 2px; border-radius: 1rem; -webkit-border-radius: 1rem; -moz-border-radius: 1rem; -ms-border-radius: 1rem; -o-border-radius: 1rem}::-webkit-scrollbar-thumb:active{ background-color: #999999}::-webkit-scrollbar-thumb:hover{ background: #747474; box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2)}::-webkit-scrollbar-track{ background: #e1e1e1; border-radius: 1rem; -webkit-border-radius: 1rem; -moz-border-radius: 1rem; -ms-border-radius: 1rem; -o-border-radius: 1rem}::-webkit-scrollbar-track:hover,::-webkit-scrollbar-track:active{ background: #d4d4d4}.dialog-fixed{ -webkit-backdrop-filter: blur(4px); }.tooltip::before{ content: ""; height: 0.6rem; width: 0.6rem; left: 1.2rem; top: -0.2rem; transform: rotate(45deg); position: absolute; z-index: 3; background: white; -webkit-transform: rotate(45deg); -moz-transform: rotate(45deg); -ms-transform: rotate(45deg); -o-transform: rotate(45deg)}.min-h-24{ min-height: 24rem}@media (max-width: 700px) and (orientation: landscape){ div[role="dialog"] .settings{ height: 16rem;}}.justify-center{ justify-content: center}.flex-col{ flex-direction: column}.flex{ display: flex}
+ *,:before,:after{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}:before,:after{--tw-content: ""}html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji"}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,samp,pre{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,[type=button],[type=reset],[type=submit]{-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dl,dd,h1,h2,h3,h4,h5,h6,hr,figure,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}ol,ul,menu{list-style:none;margin:0;padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input:-ms-input-placeholder,textarea:-ms-input-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}button,[role=button]{cursor:pointer}:disabled{cursor:default}img,svg,video,canvas,audio,iframe,embed,object{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]{display:none}*,:before,:after{--tw-translate-x: 0;--tw-translate-y: 0;--tw-rotate: 0;--tw-skew-x: 0;--tw-skew-y: 0;--tw-scale-x: 1;--tw-scale-y: 1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness: proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width: 0px;--tw-ring-offset-color: #fff;--tw-ring-color: rgb(59 130 246 / .5);--tw-ring-offset-shadow: 0 0 #0000;--tw-ring-shadow: 0 0 #0000;--tw-shadow: 0 0 #0000;--tw-shadow-colored: 0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{top:0px;right:0px;bottom:0px;left:0px}.top-14{top:3.5rem}.left-7{left:1.75rem}.-left-28{left:-7rem}.right-3{right:.75rem}.top-3{top:.75rem}.bottom-2{bottom:.5rem}.-left-44{left:-11rem}.-top-7{top:-1.75rem}.z-10{z-index:10}.z-20{z-index:20}.m-3{margin:.75rem}.m-auto{margin:auto}.my-2{margin-top:.5rem;margin-bottom:.5rem}.my-4{margin-top:1rem;margin-bottom:1rem}.mx-auto{margin-left:auto;margin-right:auto}.mx-2{margin-left:.5rem;margin-right:.5rem}.mt-1{margin-top:.25rem}.ml-5{margin-left:1.25rem}.mb-4{margin-bottom:1rem}.-mt-6{margin-top:-1.5rem}.mt-2{margin-top:.5rem}.mb-5{margin-bottom:1.25rem}.ml-auto{margin-left:auto}.ml-2{margin-left:.5rem}.mb-6{margin-bottom:1.5rem}.block{display:block}.flex{display:flex}.hidden{display:none}.h-24{height:6rem}.h-10{height:2.5rem}.h-3{height:.75rem}.h-96{height:24rem}.h-4{height:1rem}.h-6{height:1.5rem}.h-full{height:100%}.h-8{height:2rem}.h-5{height:1.25rem}.w-full{width:100%}.w-3{width:.75rem}.w-72{width:18rem}.w-24{width:6rem}.w-10\/12{width:83.333333%}.w-4{width:1rem}.w-16{width:4rem}.w-6{width:1.5rem}.w-8{width:2rem}.w-36{width:9rem}.w-5{width:1.25rem}.w-\[165px\]{width:165px}.w-44{width:11rem}.rotate-45{--tw-rotate: 45deg;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.flex-col{flex-direction:column}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-2{gap:.5rem}.space-y-2>:not([hidden])~:not([hidden]){--tw-space-y-reverse: 0;margin-top:calc(.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.5rem * var(--tw-space-y-reverse))}.space-x-2>:not([hidden])~:not([hidden]){--tw-space-x-reverse: 0;margin-right:calc(.5rem * var(--tw-space-x-reverse));margin-left:calc(.5rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-1>:not([hidden])~:not([hidden]){--tw-space-x-reverse: 0;margin-right:calc(.25rem * var(--tw-space-x-reverse));margin-left:calc(.25rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-3>:not([hidden])~:not([hidden]){--tw-space-x-reverse: 0;margin-right:calc(.75rem * var(--tw-space-x-reverse));margin-left:calc(.75rem * calc(1 - var(--tw-space-x-reverse)))}.overflow-hidden{overflow:hidden}.overflow-y-scroll{overflow-y:scroll}.rounded-full{border-radius:9999px}.rounded-md{border-radius:.375rem}.rounded{border-radius:.25rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-gray-100{--tw-border-opacity: 1;border-color:rgb(243 244 246 / var(--tw-border-opacity))}.border-gray-200{--tw-border-opacity: 1;border-color:rgb(229 231 235 / var(--tw-border-opacity))}.bg-transparent{background-color:transparent}.bg-white{--tw-bg-opacity: 1;background-color:rgb(255 255 255 / var(--tw-bg-opacity))}.bg-black{--tw-bg-opacity: 1;background-color:rgb(0 0 0 / var(--tw-bg-opacity))}.bg-gray-100{--tw-bg-opacity: 1;background-color:rgb(243 244 246 / var(--tw-bg-opacity))}.bg-purple-600{--tw-bg-opacity: 1;background-color:rgb(147 51 234 / var(--tw-bg-opacity))}.bg-opacity-30{--tw-bg-opacity: .3}.p-2{padding:.5rem}.px-2{padding-left:.5rem;padding-right:.5rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-3{padding-left:.75rem;padding-right:.75rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.px-4{padding-left:1rem;padding-right:1rem}.py-16{padding-top:4rem;padding-bottom:4rem}.px-1{padding-left:.25rem;padding-right:.25rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}.pt-5{padding-top:1.25rem}.pt-6{padding-top:1.5rem}.pb-10{padding-bottom:2.5rem}.pb-2{padding-bottom:.5rem}.pb-5{padding-bottom:1.25rem}.text-left{text-align:left}.text-center{text-align:center}.text-right{text-align:right}.align-middle{vertical-align:middle}.text-sm{font-size:.875rem;line-height:1.25rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-2xl{font-size:1.5rem;line-height:2rem}.text-xs{font-size:.75rem;line-height:1rem}.text-7xl{font-size:4.5rem;line-height:1}.text-xl{font-size:1.25rem;line-height:1.75rem}.font-medium{font-weight:500}.font-semibold{font-weight:600}.font-bold{font-weight:700}.text-white{--tw-text-opacity: 1;color:rgb(255 255 255 / var(--tw-text-opacity))}.text-transparent{color:transparent}.text-gray-800{--tw-text-opacity: 1;color:rgb(31 41 55 / var(--tw-text-opacity))}.text-black{--tw-text-opacity: 1;color:rgb(0 0 0 / var(--tw-text-opacity))}.text-indigo-500{--tw-text-opacity: 1;color:rgb(99 102 241 / var(--tw-text-opacity))}.text-gray-600{--tw-text-opacity: 1;color:rgb(75 85 99 / var(--tw-text-opacity))}.line-through{-webkit-text-decoration-line:line-through;text-decoration-line:line-through}.placeholder-white::-moz-placeholder{--tw-placeholder-opacity: 1;color:rgb(255 255 255 / var(--tw-placeholder-opacity))}.placeholder-white:-ms-input-placeholder{--tw-placeholder-opacity: 1;color:rgb(255 255 255 / var(--tw-placeholder-opacity))}.placeholder-white::placeholder{--tw-placeholder-opacity: 1;color:rgb(255 255 255 / var(--tw-placeholder-opacity))}.shadow-md{--tw-shadow: 0 4px 6px -1px rgb(0 0 0 / .1), 0 2px 4px -2px rgb(0 0 0 / .1);--tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000),var(--tw-ring-shadow, 0 0 #0000),var(--tw-shadow)}.shadow-sm{--tw-shadow: 0 1px 2px 0 rgb(0 0 0 / .05);--tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000),var(--tw-ring-shadow, 0 0 #0000),var(--tw-shadow)}.outline-none{outline:2px solid transparent;outline-offset:2px}.ring{--tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow, 0 0 #0000)}.ring-white{--tw-ring-opacity: 1;--tw-ring-color: rgb(255 255 255 / var(--tw-ring-opacity))}.ring-opacity-50{--tw-ring-opacity: .5}.blur{--tw-blur: blur(8px);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-lg{--tw-backdrop-blur: blur(16px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-filter{-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.hover\:bg-gray-100:hover{--tw-bg-opacity: 1;background-color:rgb(243 244 246 / var(--tw-bg-opacity))}.hover\:bg-gray-200:hover{--tw-bg-opacity: 1;background-color:rgb(229 231 235 / var(--tw-bg-opacity))}.hover\:bg-purple-500:hover{--tw-bg-opacity: 1;background-color:rgb(168 85 247 / var(--tw-bg-opacity))}.hover\:bg-indigo-400:hover{--tw-bg-opacity: 1;background-color:rgb(129 140 248 / var(--tw-bg-opacity))}.hover\:bg-opacity-10:hover{--tw-bg-opacity: .1}.hover\:text-black:hover{--tw-text-opacity: 1;color:rgb(0 0 0 / var(--tw-text-opacity))}.hover\:text-purple-500:hover{--tw-text-opacity: 1;color:rgb(168 85 247 / var(--tw-text-opacity))}.hover\:text-white:hover{--tw-text-opacity: 1;color:rgb(255 255 255 / var(--tw-text-opacity))}.hover\:text-indigo-400:hover{--tw-text-opacity: 1;color:rgb(129 140 248 / var(--tw-text-opacity))}.focus\:bg-gray-100:focus{--tw-bg-opacity: 1;background-color:rgb(243 244 246 / var(--tw-bg-opacity))}.focus\:bg-white:focus{--tw-bg-opacity: 1;background-color:rgb(255 255 255 / var(--tw-bg-opacity))}.focus\:text-black:focus{--tw-text-opacity: 1;color:rgb(0 0 0 / var(--tw-text-opacity))}.focus\:placeholder-gray-400:focus::-moz-placeholder{--tw-placeholder-opacity: 1;color:rgb(156 163 175 / var(--tw-placeholder-opacity))}.focus\:placeholder-gray-400:focus:-ms-input-placeholder{--tw-placeholder-opacity: 1;color:rgb(156 163 175 / var(--tw-placeholder-opacity))}.focus\:placeholder-gray-400:focus::placeholder{--tw-placeholder-opacity: 1;color:rgb(156 163 175 / var(--tw-placeholder-opacity))}.focus\:ring:focus{--tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow, 0 0 #0000)}.focus\:ring-gray-400:focus{--tw-ring-opacity: 1;--tw-ring-color: rgb(156 163 175 / var(--tw-ring-opacity))}.focus\:ring-indigo-300:focus{--tw-ring-opacity: 1;--tw-ring-color: rgb(165 180 252 / var(--tw-ring-opacity))}@media (prefers-reduced-motion: no-preference){.motion-safe\:hover\:scale-110:hover{--tw-scale-x: 1.1;--tw-scale-y: 1.1;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}}@media (min-width: 640px){.sm\:text-xl{font-size:1.25rem;line-height:1.75rem}}@media (min-width: 768px){.md\:absolute{position:absolute}.md\:left-0{left:0px}.md\:block{display:block}.md\:hidden{display:none}.md\:w-8\/12{width:66.666667%}.md\:w-7\/12{width:58.333333%}.md\:w-6\/12{width:50%}.md\:w-\[initial\]{width:initial}.md\:flex-row{flex-direction:row}.md\:items-center{align-items:center}.md\:text-2xl{font-size:1.5rem;line-height:2rem}.md\:text-9xl{font-size:8rem;line-height:1}.md\:text-4xl{font-size:2.25rem;line-height:2.5rem}}@media (min-width: 1024px){.lg\:mt-2{margin-top:.5rem}.lg\:h-96{height:24rem}.lg\:w-7\/12{width:58.333333%}.lg\:w-4\/12{width:33.333333%}}@media (min-width: 1280px){.xl\:w-4\/12{width:33.333333%}}
+
   </style>
   <title>Start Home</title>
 
@@ -41,12 +42,12 @@
 </head>
 
 <body>
-  <header class="w-full flex items-center header h-24">
+  <header class="flex items-center w-full h-24 header">
     <div aria-label="Cambia aleatoreamente tu wallpaper y tu frase">
       <button
-        class="bg-transparent block transform motion-safe:hover:scale-110 text-white px-2 rounded-full m-3 hover:bg-gray-100 hover:bg-opacity-10 h-10"
+        class="block h-10 px-2 m-3 text-white transform bg-transparent rounded-full motion-safe:hover:scale-110 hover:bg-gray-100 hover:bg-opacity-10"
         aria-label="Refresh" title="Reload Wallpaper">
-        <svg class="pointer-events-none	align-middle" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="24"
+        <svg class="align-middle pointer-events-none" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="24"
           height="24" viewBox="0 0 24 24">
           <path
             d="M10 11H7.101l.001-.009a4.956 4.956 0 0 1 .752-1.787 5.054 5.054 0 0 1 2.2-1.811c.302-.128.617-.226.938-.291a5.078 5.078 0 0 1 2.018 0 4.978 4.978 0 0 1 2.525 1.361l1.416-1.412a7.036 7.036 0 0 0-2.224-1.501 6.921 6.921 0 0 0-1.315-.408 7.079 7.079 0 0 0-2.819 0 6.94 6.94 0 0 0-1.316.409 7.04 7.04 0 0 0-3.08 2.534 6.978 6.978 0 0 0-1.054 2.505c-.028.135-.043.273-.063.41H2l4 4 4-4zm4 2h2.899l-.001.008a4.976 4.976 0 0 1-2.103 3.138 4.943 4.943 0 0 1-1.787.752 5.073 5.073 0 0 1-2.017 0 4.956 4.956 0 0 1-1.787-.752 5.072 5.072 0 0 1-.74-.61L7.05 16.95a7.032 7.032 0 0 0 2.225 1.5c.424.18.867.317 1.315.408a7.07 7.07 0 0 0 2.818 0 7.031 7.031 0 0 0 4.395-2.945 6.974 6.974 0 0 0 1.053-2.503c.027-.135.043-.273.063-.41H22l-4-4-4 4z">
@@ -59,10 +60,10 @@
     </div>
     <div aria-label="Convierte esta fotografía y esta frase en tu favorita">
       <button
-        class="bg-transparent block transform motion-safe:hover:scale-110 px-2 rounded-full m-3 hover:bg-gray-100 hover:bg-opacity-10 h-10"
+        class="block h-10 px-2 m-3 transform bg-transparent rounded-full motion-safe:hover:scale-110 hover:bg-gray-100 hover:bg-opacity-10"
         aria-selected="false" role="button" aria-label="Guardar como Favorito" title="Guardar wallpaper como favorito" id="favorito">
         <svg xmlns="http://www.w3.org/2000/svg"
-          class="icon text-transparent icon-tabler icon-tabler-star pointer-events-none" width="24" height="24"
+          class="text-transparent pointer-events-none icon icon-tabler icon-tabler-star" width="24" height="24"
           viewBox="0 0 24 24" stroke-width="2" stroke="white" fill="currentColor" stroke-linecap="round"
           stroke-linejoin="round">
           <path stroke="none" d="M0 0h24v24H0z" ></path>
@@ -74,7 +75,7 @@
     </div>
     <div aria-label="Ir a Gmail">
       <a href="https://mail.google.com/mail"
-        class="bg-transparent  transform motion-safe:hover:scale-110 text-white px-2 rounded-full m-3 hover:bg-gray-100 hover:bg-opacity-10 h-10 flex items-center "
+        class="flex items-center h-10 px-2 m-3 text-white transform bg-transparent rounded-full motion-safe:hover:scale-110 hover:bg-gray-100 hover:bg-opacity-10 "
         rel="noopener noreferrer" target="_blank" title="Ir a Gmail" aria-label="Ir a Gmail">
 
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-inbox" width="24" height="24"
@@ -88,7 +89,7 @@
     </div>
     <div class="relative" aria-label="Crea notas rápidas">
       <button id="notes-list"
-        class="btn-notes-list bg-transparent block transform motion-safe:hover:scale-110 text-white px-2 rounded-full m-3 hover:bg-gray-100 hover:bg-opacity-10 h-10"
+        class="block h-10 px-2 m-3 text-white transform bg-transparent rounded-full btn-notes-list motion-safe:hover:scale-110 hover:bg-gray-100 hover:bg-opacity-10"
         aria-label="Botón de notas" title="Crear nota">
         <svg class="pointer-events-none" xmlns="http://www.w3.org/2000/svg"
           width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
@@ -101,28 +102,28 @@
         </svg>
 
       </button>
-      <div class="notes-list__list hidden rounded-md overflow-hidden">
-        <div class="h-3 w-3 z-10 bg-white absolute top-14 left-7 transform rotate-45"></div>
+      <div class="hidden overflow-hidden rounded-md notes-list__list">
+        <div class="absolute z-10 w-3 h-3 transform rotate-45 bg-white top-14 left-7"></div>
         <div
-          class="absolute  -left-28 md:left-0 z-10 bg-white top-14 notes rounded-md  mt-1 shadow-md w-72"
+          class="absolute z-10 mt-1 bg-white rounded-md shadow-md -left-28 md:left-0 top-14 notes w-72"
           role="Lista de notas">
-          <p id="cant-notes" class="font-medium pt-5 px-5 text-sm">No tienes nada pendiente.</p>
-          <div id="notes" class=" flex flex-col space-y-2 px-3 py-3">
+          <p id="cant-notes" class="px-5 pt-5 text-sm font-medium">No tienes nada pendiente.</p>
+          <div id="notes" class="flex flex-col px-3 py-3 space-y-2 ">
 
 
           </div>
           <button id="new-note"
-            class="font-semibold text-sm text-gray-800 hover:bg-gray-200 rounded-md ml-5 py-2 px-2 w-24 text-left my-2">+
+            class="w-24 px-2 py-2 my-2 ml-5 text-sm font-semibold text-left text-gray-800 rounded-md hover:bg-gray-200">+
             New</button>
         </div>
       </div>
     </div>
     <div id="settings" class="relative" aria-label="Configura tu perfil">
       <button
-        class="bg-transparent block transform motion-safe:hover:scale-110 px-2 rounded-full m-3 hover:bg-gray-100 hover:bg-opacity-10 h-10"
+        class="block h-10 px-2 m-3 transform bg-transparent rounded-full motion-safe:hover:scale-110 hover:bg-gray-100 hover:bg-opacity-10"
         aria-selected="false" aria-label="Ajustes" role="button" title="Ajustes" data-dialog-open>
         <svg xmlns="http://www.w3.org/2000/svg"
-          class="icon icon-tabler icon-tabler-settings pointer-events-none	align-middle text-white" width="24"
+          class="text-white align-middle pointer-events-none icon icon-tabler icon-tabler-settings" width="24"
           height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
           stroke-linejoin="round">
           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -133,19 +134,19 @@
         </svg>
       </button>
       <div role="dialog" aria-modal="true" hidden
-        class="fixed bg-black bg-opacity-30 backdrop-filter inset-0 z-20 text-black backdrop-blur-lg dialog-fixed"
+        class="fixed inset-0 z-20 text-black bg-black bg-opacity-30 backdrop-filter backdrop-blur-lg dialog-fixed"
         data-dialog-hide>
         <div
-          class="settings bg-white absolute inset-0 h-96 lg:h-96  w-10/12 md:w-8/12 lg:w-7/12 xl:w-4/12 m-auto rounded-md ">
-          <button class="absolute right-3 top-3 rounded-full p-2 hover:bg-gray-200" type="button" data-dialog-hide>
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4  pointer-events-none" fill="none" viewBox="0 0 24 24"
+          class="absolute inset-0 w-10/12 m-auto bg-white rounded-md settings h-96 lg:h-96 md:w-8/12 lg:w-7/12 xl:w-4/12 ">
+          <button class="absolute p-2 rounded-full right-3 top-3 hover:bg-gray-200" type="button" data-dialog-hide>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 pointer-events-none" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
-          <div class="settings__menu flex h-96 overflow-hidden rounded-md">
-            <div class="bg-gray-100 w-16 md:w-7/12 pt-6 pb-10 overflow-hidden">
-              <h4 class="md:text-2xl font-bold px-4 mb-4">
+          <div class="flex overflow-hidden rounded-md settings__menu h-96">
+            <div class="w-16 pt-6 pb-10 overflow-hidden bg-gray-100 md:w-7/12">
+              <h4 class="px-4 mb-4 font-bold md:text-2xl">
                 <svg xmlns="http://www.w3.org/2000/svg" class="md:hidden icon icon-tabler icon-tabler-settings"
                   width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                   stroke-linecap="round" stroke-linejoin="round">
@@ -158,38 +159,38 @@
                 <span class="hidden md:block"> Configuración</span>
               </h4>
               <button role="button" aria-label="Botón saludo"
-                class="hover:bg-gray-200 flex items-center space-x-2 hover:text-black w-full text-left px-4 py-3 "
+                class="flex items-center w-full px-4 py-3 space-x-2 text-left hover:bg-gray-200 hover:text-black "
                 aria-selected="true" data-option="1">
-                <svg xmlns="http://www.w3.org/2000/svg" class=" icon icon-tabler icon-tabler-user pointer-events-none"
+                <svg xmlns="http://www.w3.org/2000/svg" class="pointer-events-none  icon icon-tabler icon-tabler-user"
                   width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                   stroke-linecap="round" stroke-linejoin="round">
                   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                   <circle cx="12" cy="7" r="4"></circle>
                   <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
                 </svg>
-                <span class="hidden md:block pointer-events-none">Usuario</span>
+                <span class="hidden pointer-events-none md:block">Usuario</span>
               </button>
-              <button class="hover:bg-gray-200 flex items-center space-x-2 hover:text-black w-full text-left px-4 py-3 "
+              <button class="flex items-center w-full px-4 py-3 space-x-2 text-left hover:bg-gray-200 hover:text-black "
                 role="button" aria-label="Botón Información" data-option="2" aria-selected="false">
-                <svg xmlns="http://www.w3.org/2000/svg" class="pointer-events-none  h-6 w-6" fill="none"
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 pointer-events-none" fill="none"
                   viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <span class="hidden md:block pointer-events-none">Información</span>
+                <span class="hidden pointer-events-none md:block">Información</span>
               </button>
             </div>
-            <div class="w-full py-16 px-4 min-h-24 overflow-y-scroll">
+            <div class="w-full px-4 py-16 overflow-y-scroll min-h-24">
               <div data-selected="1">
-                <h4 class="font-bold text-lg -mt-6 px-1 pb-2">Usuario</h4>
+                <h4 class="px-1 pb-2 -mt-6 text-lg font-bold">Usuario</h4>
                 <div id="name-user"
-                  class="focus:bg-gray-100 outline-none py-2 px-3 rounded-md border border-gray-100 w-full text-sm"
+                  class="w-full px-3 py-2 text-sm border border-gray-100 rounded-md outline-none focus:bg-gray-100"
                   contenteditable aria-label="Nombre de usuario" placeholder="Escribe tu nombre"></div>
               </div>
               <div data-selected="2" hidden class="h-full">
-                <h4 class="font-bold text-lg -mt-6 px-1 pb-2">Información</h4>
+                <h4 class="px-1 pb-2 -mt-6 text-lg font-bold">Información</h4>
                 <div>
-                  <h2 class="flex md:items-center flex-col md:flex-row gap-2 ">
+                  <h2 class="flex flex-col gap-2 md:items-center md:flex-row ">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-smart-home" width="54"
                       height="54" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                       stroke-linecap="round" stroke-linejoin="round">
@@ -201,22 +202,22 @@
                     </svg>
                     <div class="flex flex-col">
                       <span class="block text-2xl font-medium">Start Home</span>
-                      <span class="version text-xs">v2.4.0</span>
+                      <span class="text-xs version">v2.4.0</span>
                     </div>
 
                   </h2>
-                  <div class="flex flex-col my-2 border-b border-gray-200 pb-2 ">
-                    <p class="text-sm py-2">
+                  <div class="flex flex-col pb-2 my-2 border-b border-gray-200 ">
+                    <p class="py-2 text-sm">
                       Una página de inicio rápido, donde además de ser un buscador, podrás guardar notas y al mismo
                       tiempo tener hermosos paisajes de fondo.
                     </p>
                     <a href="https://github.com/eduardoguette/start-home" target="_blank" rel="noopener noreferrer">
                       <span class="text-xs hover:text-purple-500">View Code</span>
                     </a>
-                    <div class="about-pics text-xs my-4">
-                      <p>Fotografías gracias a <a href="https://unsplash.com/" class="text-indigo-500 border rounded-md px-2 py-1" target="_blank" rel="noopener noreferrer">Unplash</a> </p>
+                    <div class="my-4 text-xs about-pics">
+                      <p>Fotografías gracias a <a href="https://unsplash.com/" class="px-2 py-1 text-indigo-500 border rounded-md" target="_blank" rel="noopener noreferrer">Unplash</a> </p>
                     </div>
-                    <div class="credits text-xs mt-2">
+                    <div class="mt-2 text-xs credits">
                       <p>
                         Inspirado en
                         <a href="https://demo.muetab.com/" target="_blank" rel="noopener noreferrer"
@@ -225,11 +226,11 @@
                     </div>
                   </div>
 
-                  <div class="mt-1  lg:mt-2 text-xs flex flex-col pb-5" aria-label="Acerca del desarrollador">
+                  <div class="flex flex-col pb-5 mt-1 text-xs lg:mt-2" aria-label="Acerca del desarrollador">
                     <p>Desarrollado por Eduardo Guette</p>
-                    <div class="flex items-center space-x-1 mt-2">
+                    <div class="flex items-center mt-2 space-x-1">
                       <a href="https://www.linkedin.com/in/eduardo-guette/" target="_blank" rel="noopener noreferrer"
-                        class="hover:text-white hover:bg-purple-500 rounded-full  h-8 w-8 flex items-center justify-center">
+                        class="flex items-center justify-center w-8 h-8 rounded-full hover:text-white hover:bg-purple-500">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin"
                           width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                           stroke-linecap="round" stroke-linejoin="round">
@@ -242,7 +243,7 @@
                         </svg>
                       </a>
                       <a href="https://twitter.com/eduardoguette" target="_blank" rel="noopener noreferrer"
-                        class="hover:text-white hover:bg-purple-500 rounded-full  h-8 w-8 flex items-center justify-center">
+                        class="flex items-center justify-center w-8 h-8 rounded-full hover:text-white hover:bg-purple-500">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter"
                           width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                           stroke-linecap="round" stroke-linejoin="round">
@@ -266,24 +267,24 @@
     <div>
 
     
-    <section class="say mb-5"></section>
+    <section class="mb-5 say"></section>
     <section class="clock"></section>
-    <form id="form" class="w-full mx-auto flex justify-center">
+    <form id="form" class="flex justify-center w-full mx-auto">
       <input id="query"
-        class="mx-auto focus:placeholder-gray-400 cursor-pointer placeholder-white w-10/12 ring py-2 px-5 ring-white ring-opacity-50 focus:ring-gray-400 md:w-6/12 lg:w-4/12 outline-none text-white rounded-full m-3 bg-gray-100 bg-opacity-30 focus:bg-white focus:text-black"
+        class="w-10/12 px-5 py-2 m-3 mx-auto text-white placeholder-white bg-gray-100 rounded-full outline-none cursor-pointer focus:placeholder-gray-400 ring ring-white ring-opacity-50 focus:ring-gray-400 md:w-6/12 lg:w-4/12 bg-opacity-30 focus:bg-white focus:text-black"
         type="text" placeholder="Busca en Google o escribir una URL" />
     </form>
-    <section class="quote py-5"></section>
+    <section class="py-5 quote"></section>
   </div>
 
   </main>
   <div class="wallpaper"></div>
-  <footer id="info-wallpaper" class="px-4 py-2 text-white flex justify-between w-full md:absolute bottom-2">
+  <footer id="info-wallpaper" class="flex justify-between w-full px-4 py-2 text-white md:absolute bottom-2">
     <a href="" target="_blank" rel="noopener noreferrer" class="block hover:text-indigo-400" id="author"></a>
     <div class="flex items-center location-wrapper w-36 md:w-[initial]">
 
-      <p class="text-right ml-auto" id="location"></p>
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+      <p class="ml-auto text-right" id="location"></p>
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
         <path fill-rule="evenodd"
           d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
           clip-rule="evenodd" />
