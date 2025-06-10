@@ -14,6 +14,8 @@
 
 - [Construido con](#construido-con)
 
+- [Instalación](#instalación)
+
 ## Descripción
 
 Es una página de inicio rápido, donde además de ser un buscador, podrás guardar notas y al mismo tiempo tener hermosos paisajes de fondo.
@@ -54,3 +56,10 @@ Clonar https://demo.muetab.com/.
 - JavaScript
 
 - Animate.css
+
+### Instalación
+
+1. Ejecuta `npm install` para instalar dependencias.
+2. Usa `npm run dev` para el entorno de desarrollo.
+3. Ejecuta `npm run build` para construir la versión de producción.
+4. Para desplegar la app con Vite, sube el contenido de `dist` a tu servidor o revisa la [guía de despliegue](https://vitejs.dev/guide/static-deploy.html).
