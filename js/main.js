@@ -72,7 +72,8 @@ function addWallpaper(data) {
 }
 
 async function getWallpaper() {
-  const url = 'https://api.unsplash.com/photos/random/?client_id=3j0d6XQ7CAPIECX8Srl987CrGxpQLn5g07vL3vgxdco&orientation=landscape&&query=nature';
+  const UNSPLASH_KEY = import.meta.env.VITE_UNSPLASH_KEY;
+  const url = `https://api.unsplash.com/photos/random/?client_id=${UNSPLASH_KEY}&orientation=landscape&&query=nature`;
 
   try {
     const resp = await fetch(url);

@@ -54,3 +54,8 @@ Clonar https://demo.muetab.com/.
 - JavaScript
 
 - Animate.css
+
+### Configuración
+
+1. Copia `env.example` a `.env`.
+2. Coloca tu clave de Unsplash reemplazando `<tu_clave>`.
