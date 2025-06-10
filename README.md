@@ -54,3 +54,7 @@ Clonar https://demo.muetab.com/.
 - JavaScript
 
 - Animate.css
+
+### Licencia
+
+Este proyecto está bajo la [Licencia MIT](LICENSE).
