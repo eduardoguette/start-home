@@ -41,6 +41,13 @@ Clonar https://demo.muetab.com/.
 
 - [Live Site URL](https://start-home.netlify.app/)
 
+### My process
+
+- Analicé el diseño de referencia y planifiqué la estructura.
+- Maqueté el layout con HTML y Tailwind.
+- Añadí interactividad mediante JavaScript.
+- Utilicé Animate.css para las transiciones.
+
 ### Construido con
 
 - HTML5
